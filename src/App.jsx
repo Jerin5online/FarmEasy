@@ -26,7 +26,7 @@ function App() {
         <Route path="/office" element = {<Office/>} />
         <Route path="/crop" element = {<Crop/>} />
         <Route path="/disease" element = {<Disease/>} />
-        <Route path="#" element = {<Error/>} />
+        <Route element = {<Error/>} />
         <Route path="/feedback" element = {<Feedback/>} />
         <Route path="/news" element = {<News/>} />
         <Route path="/privacy" element = {<Privacy/>} />
