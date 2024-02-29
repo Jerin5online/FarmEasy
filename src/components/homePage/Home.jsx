@@ -19,36 +19,52 @@ const Home = () => {
 
     fetchNewsData();
   }, []);
-  return (
-    <div>
-      <h2>Welcome to Farm Ease App</h2>
-      <p>Empowering farmers with comprehensive crop information and disease solutions.</p>
+  return (<>
+
+
+    <div className="main">
+      <div className="col col1">
+        <h2>Welcome to Farm Ease App</h2>
+        <p>Empowering farmers with comprehensive crop information and disease solutions.</p>
+        {/* <button type="button">More</button> */}
+      </div>
+      <div className="col">
+        <div className="card card1"></div>
+        <div className="card card2"></div>
+        <div className="card card3"></div>
+        <div className="card card4"></div>
+        <div className="card card5"></div>
+        <div className="card card6"></div>
+      </div>
       
-      {/* Highlights of key features */}
-      <div>
+    </div>
+    <div>
+      {/* <div>
         <h3>Key Features</h3>
         <ul>
           <li>Comprehensive crop information</li>
           <li>Disease solutions</li>
           <li>Real-time news updates</li>
-          {/* Add more features as needed */}
         </ul>
-      </div>
+      </div> */}
       
-      {/* Latest news updates in agriculture */}
       <div>
         <h3>Latest News Updates in Agriculture</h3>
         <ul>
           {newsData.map((article, index) => (
             <li key={index}>
-              <h4>{article.title}</h4>
-              <p>{article.description}</p>
-              {/* Include additional details like author, date, etc. as needed */}
+              <h4>{article.title}Farmers protest</h4>
+              <p>{article.description}Empowering farmers with comprehensive crop information and disease solutions.</p>
+              
+              
             </li>
           ))}
         </ul>
       </div>
     </div>
+
+
+    </>     
   );
 };
 

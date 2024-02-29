@@ -1,4 +1,3 @@
-import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/footer/Footer";
 import Home from "./components/homePage/Home";
@@ -14,6 +13,7 @@ import MyHeader from "./components/myHeader/MyHeader";
 import Privacy from "./components/termsOfServicesAndPrivacy/Privacy";
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import LoginSignUp from "./components/loginSignUp/LoginSignUp";
 
 
 function App() {
@@ -31,6 +31,8 @@ function App() {
         <Route path="/news" element = {<News/>} />
         <Route path="/privacy" element = {<Privacy/>} />
         <Route path="/profile" element = {<Profile/>} />
+        <Route path="/loginsignup" element = {<LoginSignUp/>} />
+
       </Routes>
       <Footer />
     </BrowserRouter>
