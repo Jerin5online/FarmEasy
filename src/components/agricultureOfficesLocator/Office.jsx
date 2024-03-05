@@ -35,7 +35,7 @@ const Office = () => {
   };
   return (
     <div>
-    <h2>Agriculture Offices Locator</h2>
+    <h2 style={{fontFamily:"serif",textAlign:"center"}}>Agriculture Offices Locator</h2>
     {/* Map-based feature to locate nearby agriculture offices */}
     <div>
       {/* Render map with markers for agriculture offices */}

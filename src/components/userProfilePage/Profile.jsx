@@ -42,18 +42,64 @@ const Profile = () => {
       </div>
     ) : (
       // User is not logged in
-      <div>
-        <h2>Login</h2>
-        <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        <button onClick={handleLogin}>Login</button>
+      // <div>
+      //   <h2>Login</h2>
+      //   <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+      //   <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      //   <button onClick={handleLogin}>Login</button>
 
-        <h2>Register</h2>
-        <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        <button onClick={handleRegistration}>Register</button>
-      </div>
+      //   <h2>Register</h2>
+      //   <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+      //   <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      //   <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      //   <button onClick={handleRegistration}>Register</button>
+      // </div>
+     <div className="row">
+      <div className="col"> <form class="form" style={{marginLeft:"20em"}}>
+    <p class="title fs-3 text-dark">Register </p>
+    <p class="message">Signup now and get full access to our app. </p>
+        <div class="flex">
+       <label>
+            <input value={username} onChange={(e) => setUsername(e.target.value)} required="" placeholder="" type="text" class="input"/>
+            <span>Username</span>
+        </label>
+    </div>  
+            
+    <label>
+        <input value={email} onChange={(e) => setEmail(e.target.value)} required="" placeholder="" type="email" class="input"/>
+        <span>Email</span>
+    </label> 
+        
+    <label>
+        <input value={password} onChange={(e) => setPassword(e.target.value)} required="" placeholder="" type="password" class="input"/>
+        <span >Password</span>
+    </label>
+    <button  onClick={handleRegistration} class="submit">Register</button>
+  </form>
+</div>
+
+<div className="col">
+        
+   <form class="form">
+          <p class="title fs-3 text-dark">Login </p>
+          <p class="message">Signin now and get full access to our app. </p>
+      <div class="flex">
+      
+       </div>  
+            
+    <label>
+        <input value={username} onChange={(e) => setUsername(e.target.value)} required="" placeholder="" type="email" class="input"/>
+        <span>Username</span>
+    </label> 
+        
+    <label>
+        <input value={password} onChange={(e) => setPassword(e.target.value)} required="" placeholder="" type="password" class="input"/>
+        <span >Password</span>
+    </label>
+    <button  onClick={handleLogin} class="submit">Login</button>
+  </form>
+</div>
+     </div>
     )}
   </div>
   )
