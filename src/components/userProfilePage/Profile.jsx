@@ -24,84 +24,83 @@ const Profile = () => {
     // Implement logout functionality
     // Set isLoggedIn state to false upon successful logout
   };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const signupButton = document.getElementById('signup-button'),
+      loginButton = document.getElementById('login-button'),
+      userForms = document.getElementById('user_options-forms')
+
+    signupButton.addEventListener('click', () => {
+      userForms.classList.remove('bounceRight')
+      userForms.classList.add('bounceLeft')
+    }, false)
+
+    loginButton.addEventListener('click', () => {
+      userForms.classList.remove('bounceLeft')
+      userForms.classList.add('bounceRight')
+    }, false)
+  })
   return (
-    <div>
-    {isLoggedIn ? (
-      // User is logged in
-      <div>
-        <h2>Welcome, {username}!</h2>
-        <button onClick={handleLogout}>Logout</button>
-        {/* User profile management section */}
-        <h3>User Profile Management</h3>
-        <p>Email: {email}</p>
-        {/* Add more profile management features as needed */}
+    <>
+      <div className="">
+        {isLoggedIn ? (
+          // User is logged in
+          <div>
+            <h2>Welcome, {username}!</h2>
+            <button onClick={handleLogout}>Logout</button>
+            {/* User profile management section */}
+            <h3>User Profile Management</h3>
+            <p>Email: {email}</p>
+            {/* Add more profile management features as needed */}
 
-        {/* Preferences settings section */}
-        <h3>Preferences Settings</h3>
-        {/* Implement preferences settings */}
+            {/* Preferences settings section */}
+            <h3>Preferences Settings</h3>
+            {/* Implement preferences settings */}
+          </div>
+        ) : (
+          // User is not logged in
+          // <div>
+          //   <h2>Login</h2>
+          //   <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+          //   <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          //   <button onClick={handleLogin}>Login</button>
+
+          //   <h2>Register</h2>
+          //   <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+          //   <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          //   <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          //   <button onClick={handleRegistration}>Register</button>
+          // </div>
+
+          // REGISTER
+
+          <div className="conatiner">
+            <div class="wrapper">
+              <form action="">
+                <p class="form-login">Login</p>
+                <div class="input-box">
+                  <input required="" placeholder="Username" type="text" />
+                </div>
+                <div class="input-box">
+                  <input required="" placeholder="Password" type="password" />
+                </div>
+                <div class="remember-forgot">
+                </div>
+                <button class="btn" type="submit">Login</button>
+                <div class="register-link">
+                  <p>Dont have an account? <a href="#">Register</a></p>
+                </div>
+              </form>
+            </div>
+
+
+
+          </div>
+        )}
       </div>
-    ) : (
-      // User is not logged in
-      // <div>
-      //   <h2>Login</h2>
-      //   <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-      //   <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      //   <button onClick={handleLogin}>Login</button>
 
-      //   <h2>Register</h2>
-      //   <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-      //   <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      //   <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      //   <button onClick={handleRegistration}>Register</button>
-      // </div>
-     <div className="row">
-      <div className="col"> <form class="form" style={{marginLeft:"20em"}}>
-    <p class="title fs-3 text-dark">Register </p>
-    <p class="message">Signup now and get full access to our app. </p>
-        <div class="flex">
-       <label>
-            <input value={username} onChange={(e) => setUsername(e.target.value)} required="" placeholder="" type="text" class="input"/>
-            <span>Username</span>
-        </label>
-    </div>  
-            
-    <label>
-        <input value={email} onChange={(e) => setEmail(e.target.value)} required="" placeholder="" type="email" class="input"/>
-        <span>Email</span>
-    </label> 
-        
-    <label>
-        <input value={password} onChange={(e) => setPassword(e.target.value)} required="" placeholder="" type="password" class="input"/>
-        <span >Password</span>
-    </label>
-    <button  onClick={handleRegistration} class="submit">Register</button>
-  </form>
-</div>
 
-<div className="col">
-        
-   <form class="form">
-          <p class="title fs-3 text-dark">Login </p>
-          <p class="message">Signin now and get full access to our app. </p>
-      <div class="flex">
-      
-       </div>  
-            
-    <label>
-        <input value={username} onChange={(e) => setUsername(e.target.value)} required="" placeholder="" type="email" class="input"/>
-        <span>Username</span>
-    </label> 
-        
-    <label>
-        <input value={password} onChange={(e) => setPassword(e.target.value)} required="" placeholder="" type="password" class="input"/>
-        <span >Password</span>
-    </label>
-    <button  onClick={handleLogin} class="submit">Login</button>
-  </form>
-</div>
-     </div>
-    )}
-  </div>
+    </>
   )
 }
 

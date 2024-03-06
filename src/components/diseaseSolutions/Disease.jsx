@@ -1,3 +1,5 @@
+import Footer from "../footer/Footer";
+import MyHeader from "../myHeader/MyHeader";
 import "./Disease.css";
 import React, { useState, useEffect } from 'react';
 
@@ -33,6 +35,7 @@ const Disease = () => {
    );
   return (
 <div>
+  <MyHeader/>
       <h2>Disease Solutions</h2>
       {/* Platform for farmers to post complaints (not implemented in this example) */}
       <p>If you have a complaint about a crop disease, please contact our support team.</p>
@@ -59,6 +62,8 @@ const Disease = () => {
           </ul>
         )}
       </div>
+      <Footer/>
+
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import MyHeader from "../myHeader/MyHeader";
 import "./Crop.css";
 import React, { useState, useEffect } from 'react';
 
@@ -38,6 +39,8 @@ const Crop = () => {
   };
   return (
     <div>
+          <MyHeader/>
+
       <h2 style={{fontFamily:"serif",textAlign:"center"}}>Crop Information</h2>
       {/* Search functionality */}
       {/* <div>

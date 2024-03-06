@@ -1,3 +1,5 @@
+import Footer from "../footer/Footer";
+import MyHeader from "../myHeader/MyHeader";
 import "./News.css";
 import React, { useState, useEffect } from 'react';
 
@@ -21,6 +23,8 @@ const News = () => {
   }, []);
 
   return (
+    <>
+    <MyHeader/>
 <div>
       <h2>News and Updates</h2>
       {/* Render news sections */}
@@ -55,6 +59,8 @@ const News = () => {
         </ul>
       </div>
     </div>
+    <Footer/>
+    </>
   )
 }
 

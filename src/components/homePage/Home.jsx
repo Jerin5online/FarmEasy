@@ -1,6 +1,8 @@
 import "./Home.css";
 import React, { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
+import MyHeader from "../myHeader/MyHeader";
+import Footer from "../footer/Footer";
 
 const Home = () => {
   // State variable to store news data
@@ -22,7 +24,7 @@ const Home = () => {
   }, []);
   return (<>
 
-
+<MyHeader/>
     <div>
       {/* <div className="col col1">
         <h2>Welcome to Farm Ease App</h2>
@@ -44,7 +46,7 @@ const Home = () => {
           alt="First slide"
         />
         <Carousel.Caption style={{marginBottom:"20em",}}>
-          <h1>WELCOME TO FARM EASY APP</h1>
+          <h1>WELCOME TO FARM EASE APP</h1>
           <p>The ultimate goal of farming is not the growing of crops, but the cultivation and perfection of human beings. .</p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -138,7 +140,7 @@ const Home = () => {
       </div>
     </div>
 
-
+<Footer/>
     </>     
   );
 };

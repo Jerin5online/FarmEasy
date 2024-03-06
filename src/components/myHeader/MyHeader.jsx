@@ -3,10 +3,13 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import "./MyHeader.css";
+import { Link } from 'react-router-dom';
+import Footer from '../footer/Footer';
 
 
 const MyHeader = () => {
   return (
+    <>    <MyHeader/>
     <div>
       {/* <Navbar expand="lg" className="bg-body-tertiary w-100" style={{marginTop:"-5em"}}>
       <Container>
@@ -54,8 +57,7 @@ const MyHeader = () => {
 <Nav.Link className='fs-6  text-warning' href="/feedback">FEEDBACK</Nav.Link>
 <Nav.Link className='fs-6  text-warning' href="/news">NEWS</Nav.Link>
 <Nav.Link className='fs-6  text-warning' href="/privacy">TERMS</Nav.Link>
-<Nav.Link className='fs-6  text-warning' href="/profile">PROFILE</Nav.Link>
-<Nav.Link className='fs-6  text-warning' href="/loginsignup">LOG IN</Nav.Link>
+<Nav.Link className='fs-6  text-warning' href="/profile">LOGIN</Nav.Link>
 
 
 
@@ -68,6 +70,9 @@ const MyHeader = () => {
   </div>
 </nav>
     </div>
+    <Footer/>
+    </>
+
   )
 }
 

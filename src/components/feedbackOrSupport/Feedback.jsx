@@ -1,3 +1,5 @@
+import Footer from "../footer/Footer";
+import MyHeader from "../myHeader/MyHeader";
 import "./Feedback.css";
 import React, { useState } from "react";
 
@@ -59,6 +61,7 @@ const Feedback = () => {
     //   </div>
     // </div>
     <>
+    <MyHeader/>
     <form>
         <div class="container">
             <div class="mx-auto text-center mb-5" style={{maxWidth:"500px"}}>
@@ -114,7 +117,7 @@ const Feedback = () => {
     
     
     
-    
+    <Footer/>
     </>
   );
 };
