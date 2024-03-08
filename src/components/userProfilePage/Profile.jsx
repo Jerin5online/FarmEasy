@@ -1,12 +1,32 @@
+import { Link, useNavigate } from "react-router-dom";
 import "./Profile.css";
 import React, { useState } from 'react';
+import { registrationAPI } from "../../Services/AllAPI";
+import Swal from "sweetalert2";
 
 
-const Profile = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+const Profile = ({ register }) => {
+
+  // const [username, setUsername] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const [userData,setUserData] = useState({
+    user_type :"",
+    username:"",
+    email:"",
+    password:"",
+    phone:"",
+    address:"",
+    location:"",
+    
+  })
+
+  console.log(userData);
+  const navigate = useNavigate();
+
+  const registerform = register ? true : false
 
   // Functions for user authentication and registration
   const handleLogin = () => {
@@ -14,8 +34,46 @@ const Profile = () => {
     // Set isLoggedIn state to true upon successful login
   };
 
-  const handleRegistration = () => {
+  const handleRegistration = async (e) => {
+    e.preventDefault()
     // Implement registration functionality
+    const{user_type,username,email,password,phone,address,location} = userData
+
+    if(!user_type || !username || !email || !password || !phone || !address || !location ){
+
+      Swal.fire({
+        title: "Incomplete Form !",
+        text: "Please fill in the form",
+        icon: "error",
+      });
+    }else{
+      const result = await registrationAPI(userData)
+      console.log(result.data);
+      if (result.status === 200) {
+        Swal.fire({
+          title: "Succesfully Registerd !",
+          // text: `${result.data.username} is succesfully registerd`,
+          icon: "success",
+        });
+
+        setUserData({
+          user_type :"",
+          username:"",
+          email:"",
+          password:"",
+          phone:"",
+          address:"",
+          location:"",
+        });
+
+        //navigate to login
+        navigate("/login");
+      } else {
+        alert(result.response.data);
+      }
+      
+    }
+     
     // Set isLoggedIn state to true upon successful registration
   };
 
@@ -42,23 +100,9 @@ const Profile = () => {
   })
   return (
     <>
-      <div className="">
-        {isLoggedIn ? (
-          // User is logged in
-          <div>
-            <h2>Welcome, {username}!</h2>
-            <button onClick={handleLogout}>Logout</button>
-            {/* User profile management section */}
-            <h3>User Profile Management</h3>
-            <p>Email: {email}</p>
-            {/* Add more profile management features as needed */}
-
-            {/* Preferences settings section */}
-            <h3>Preferences Settings</h3>
-            {/* Implement preferences settings */}
-          </div>
-        ) : (
-          // User is not logged in
+      <div >
+       
+          {/* // User is not logged in
           // <div>
           //   <h2>Login</h2>
           //   <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
@@ -72,31 +116,95 @@ const Profile = () => {
           //   <button onClick={handleRegistration}>Register</button>
           // </div>
 
-          // REGISTER
+          // REGISTER */}
 
-          <div className="conatiner">
-            <div class="wrapper">
-              <form action="">
-                <p class="form-login">Login</p>
+          <div>
+            <section class="container w-25 p-4 bg-primary">
+              <header>Registration Form</header>
+              <form class="form" action="#">
                 <div class="input-box">
-                  <input required="" placeholder="Username" type="text" />
+                  <label>User Name</label>
+                  <input value={userData.username} onChange={(e)=>setUserData({...userData,username:e.target.value})} placeholder="Enter full name" type="text" />
                 </div>
-                <div class="input-box">
-                  <input required="" placeholder="Password" type="password" />
+                <div class="column">
+                  {registerform&& <div class="input-box">
+                    <label>Email</label>
+                    <input value={userData.email} onChange={(e)=>setUserData({...userData,email:e.target.value})} placeholder="Enter Your Email" type="email" />
+                  </div>}
+                  { registerform&&
+                    <div class="input-box">
+                    <label>Phone Number</label>
+                    <input value={userData.phone} onChange={(e)=>setUserData({...userData,phone:e.target.value})} placeholder="Enter phone number" type="telephone" />
+                  </div>}
+
                 </div>
-                <div class="remember-forgot">
-                </div>
-                <button class="btn" type="submit">Login</button>
-                <div class="register-link">
-                  <p>Dont have an account? <a href="#">Register</a></p>
-                </div>
+                { registerform&&
+                <div class="gender-box">
+                  <label>User Type</label>
+                  <div className="gender-option">
+  <div className="gender">
+    <input
+      name="user_type"
+      id="check-user"
+      type="radio"
+      value="User"
+      checked={userData.user_type === "User"}
+      onChange={(e) => setUserData({ ...userData, user_type: e.target.value })}
+    />
+    <label htmlFor="check-user">User</label>
+  </div>
+  <div className="gender">
+    <input
+      name="user_type"
+      id="check-farmer"
+      type="radio"
+      value="Farmer"
+      checked={userData.user_type === "Farmer"}
+      onChange={(e) => setUserData({ ...userData, user_type: e.target.value })}
+    />
+    <label htmlFor="check-farmer">Farmer</label>
+  </div>
+</div>
+
+                </div>}
+               { registerform&& <div class="input-box address">
+                  <label>Address</label>
+                  <input value={userData.address} onChange={(e)=>setUserData({...userData,address:e.target.value})} placeholder="Enter street address" type="text" />
+                  <div class="column">
+                    <input value={userData.location} onChange={(e)=>setUserData({...userData,location:e.target.value})} placeholder="Enter Your Location" type="text" />
+                  </div>
+                  </div>}
+                  
+                  <div class="input-box">
+                    <label>Password</label>
+                    <input value={userData.password} onChange={(e)=>setUserData({...userData,password:e.target.value})} placeholder="Enter Your password" type="password" />
+                  </div>
+                   
+                
+               
+                
               </form>
-            </div>
+             { registerform? <div className='d-flex align-items-center flex-column '>
+                            <button onClick={handleRegistration} className='btn btn-warning rounded mt-4'>
+                              Register
+                            </button>
+                            <p className='text-danger'>Already a member?<Link style={{ textDecoration: "none", color: "black" }} to={'/login'}>login here!</Link></p>
+
+                          </div> :
+                          <div className='d-flex align-items-center flex-column '>
+                            <button  className='btn btn-warning rounded mt-4'>
+                              login
+                            </button>
+                            <p className='text-danger'>New to the site? Click here to <Link style={{ textDecoration: "none", color: "black" }} to={'/profile'}>register</Link></p>
+                          </div>}
+            </section>
+
+          
 
 
 
           </div>
-        )}
+       
       </div>
 
 

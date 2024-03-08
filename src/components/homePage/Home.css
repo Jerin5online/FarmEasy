@@ -10,7 +10,9 @@ h1{
 p{
     font-family:  'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
+#cardss{
+    width: 100%;
+}
 
 .main{
      display: flex;

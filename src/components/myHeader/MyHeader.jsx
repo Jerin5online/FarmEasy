@@ -9,7 +9,7 @@ import Footer from '../footer/Footer';
 
 const MyHeader = () => {
   return (
-    <>    <MyHeader/>
+    <>   
     <div>
       {/* <Navbar expand="lg" className="bg-body-tertiary w-100" style={{marginTop:"-5em"}}>
       <Container>
@@ -70,7 +70,8 @@ const MyHeader = () => {
   </div>
 </nav>
     </div>
-    <Footer/>
+    
+    
     </>
 
   )

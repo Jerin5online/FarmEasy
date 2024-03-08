@@ -27,7 +27,9 @@ function App() {
         <Route path="/feedback" element = {<Feedback/>} />
         <Route path="/news" element = {<News/>} />
         <Route path="/privacy" element = {<Privacy/>} />
-        <Route path="/profile" element = {<Profile/>} />
+        <Route path="/login" element = {<Profile/>} />
+
+        <Route path="/profile" element = {<Profile register/>} />
         {/* <Route path="/loginsignup" element = {<LoginSignUp/>} /> */}
 
       </Routes>

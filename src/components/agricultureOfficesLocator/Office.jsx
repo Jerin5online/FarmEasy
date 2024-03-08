@@ -1,3 +1,4 @@
+import MyHeader from "../myHeader/MyHeader";
 import "./Office.css";
 import React, { useState, useEffect } from 'react';
 
@@ -35,6 +36,7 @@ const Office = () => {
   };
   return (
     <div>
+      <MyHeader/>
     <h2 style={{fontFamily:"serif",textAlign:"center"}}>Agriculture Offices Locator</h2>
     {/* Map-based feature to locate nearby agriculture offices */}
     <div>

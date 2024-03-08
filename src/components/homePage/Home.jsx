@@ -10,35 +10,25 @@ const Home = () => {
 
   // Fetch news data from an API (example)
   useEffect(() => {
-    const fetchNewsData = async () => {
-      try {
-        const response = await fetch('https://api.example.com/news');
-        const data = await response.json();
-        setNewsData(data.articles);
-      } catch (error) {
-        console.error('Error fetching news data:', error);
-      }
-    };
+    
 
-    fetchNewsData();
+    // fetchNewsData();
   }, []);
-  return (<>
 
+  // const fetchNewsData = async () => {
+  //   try {
+  //     const response = await fetch('https://api.example.com/news');
+  //     const data = await response.json();
+  //     setNewsData(data.articles);
+  //   } catch (error) {
+  //     console.error('Error fetching news data:', error);
+  //   }
+  // };
+
+  return (<>
 <MyHeader/>
     <div>
-      {/* <div className="col col1">
-        <h2>Welcome to Farm Ease App</h2>
-        <p>Empowering farmers with comprehensive crop information and disease solutions.</p>
-      </div>
-      <div className="col">
-        <div className="card card1"></div>
-        <div className="card card2"></div>
-        <div className="card card3"></div>
-        <div className="card card4"></div>
-        <div className="card card5"></div>
-        <div className="card card6"></div>
-      </div> */}
-     <Carousel data-bs-theme="dark" className="w-100" style={{marginTop:"-75px"}}>
+     <Carousel data-bs-theme="dark" className="w-100" style={{marginTop:"-65px"}}>
       <Carousel.Item>
         <img
           className="d-block w-100 " style={{height:"700px"}}
@@ -70,13 +60,13 @@ const Home = () => {
         <Carousel.Caption  style={{marginBottom:"4em",}}>
           <h1 className="text-white"> AGRICULTURE IS NOT FARMING IT'S FEEDING</h1>
           <p className="text-white">
-          Agriculture is our wisest pursuit because it will, in the end, contribute most to real wealth, good morals, and happiness.          </p>
+          Agriculture is our wisest pursuit because it will, in the end, contribute most to real wealth, good morals, and happiness.</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
       
     </div>
-    <div className="row g-5">
+    <div id="cardss" className="row g-5 m-1">
 
    <div>
                 <div class="row g-5">
@@ -116,14 +106,6 @@ const Home = () => {
             </div>
    </div>
     <div>
-      {/* <div>
-        <h3>Key Features</h3>
-        <ul>
-          <li>Comprehensive crop information</li>
-          <li>Disease solutions</li>
-          <li>Real-time news updates</li>
-        </ul>
-      </div> */}
       
       <div>
         <h3>Latest News Updates in Agriculture</h3>
