@@ -11,12 +11,15 @@ import Profile from "./components/userProfilePage/Profile";
 import Privacy from "./components/termsOfServicesAndPrivacy/Privacy";
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import Adminhome from "./components/Admin/Adminhome";
+import MyHeader from "./components/myHeader/MyHeader";
 // import LoginSignUp from "./components/loginSignUp/LoginSignUp";
 
 
 function App() {
   return (
     <BrowserRouter>
+    
       <Routes>
         <Route path="/" element = {<Home/>} />
         <Route path="/about" element = {<About/>} />
@@ -27,8 +30,11 @@ function App() {
         <Route path="/feedback" element = {<Feedback/>} />
         <Route path="/news" element = {<News/>} />
         <Route path="/privacy" element = {<Privacy/>} />
-        <Route path="/login" element = {<Profile/>} />
+        <Route path="/login" element = {<Profile profile/>} />
+        <Route path="/adminhome" element = {<Adminhome/>} />
+        <Route path="/myheader" element = {<MyHeader />} />
 
+ 
         <Route path="/profile" element = {<Profile register/>} />
         {/* <Route path="/loginsignup" element = {<LoginSignUp/>} /> */}
 

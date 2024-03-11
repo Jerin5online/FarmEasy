@@ -1,16 +1,15 @@
 .container {
-  position: relative;
   max-width: 500px;
   width: 100%;
-  background: #FCEDDA;
+  background: #fff4e6;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  margin-top: 7em;
  
 }
-.bgprofile{
+.bgreg{
   background-image: url("https://img.freepik.com/free-photo/harvesting-wheat-tranquil-meadow-sunset-generated-by-ai_24640-80628.jpg?t=st=1709705356~exp=1709708956~hmac=b46bd80e106fe9a90be78103ac96b925430db544d8c2e6eda07bb08dd9fde9e6&w=1380");
   background-size: cover;
+  height: 816px;
 }
 
 .container header {

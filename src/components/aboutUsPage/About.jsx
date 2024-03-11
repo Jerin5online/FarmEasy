@@ -3,10 +3,14 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import React from 'react'
 import "./About.css"
+import MyHeader from '../myHeader/MyHeader';
+import Footer from '../footer/Footer';
 
 
 const About = () => {
   return (
+    <>
+    <MyHeader/>
 <div class="container mt-5">
         <h1 style={{fontFamily:"serif"}}>Crop Information</h1>
         <div className="row">
@@ -23,12 +27,15 @@ const About = () => {
               <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src="https://images.nationalgeographic.org/image/upload/t_edhub_resource_key_image/v1638892233/EducationHub/photos/crops-growing-in-thailand.jpg" />
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Card.Title>Name : </Card.Title>
+        <Card.Title>Description : </Card.Title>
+        <Card.Title>Climate : </Card.Title>
+        <Card.Title>Growth_Period : </Card.Title>
+        <Card.Title>Harvesting_time : </Card.Title>
+        <Card.Title>Techniques : </Card.Title>
+
+        
+        <Button variant="primary">Buy Now</Button>
       </Card.Body>
     </Card>
             {/* <div class="col-md-4">
@@ -41,20 +48,12 @@ const About = () => {
                     </div>
                 </div>
             </div> */}
-             <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="https://img.freepik.com/free-photo/woman-shopping-cart-supermarket_342744-1119.jpg?t=st=1709669396~exp=1709672996~hmac=1df8b8871fa41d9608c7ba3e4bf00a10c7a6c5d3f83ddc9c8bd625e05e24e1b0&w=1060" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
+           
         </div>
     </div>
+    <Footer/>
 
+    </>
   )
 }
 
