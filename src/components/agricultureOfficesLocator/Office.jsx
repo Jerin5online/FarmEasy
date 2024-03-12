@@ -1,64 +1,59 @@
+import { Card } from "react-bootstrap";
 import Footer from "../footer/Footer";
 import MyHeader from "../myHeader/MyHeader";
 import "./Office.css";
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
+import { agriofficeAPI } from "../../Services/AllAPI";
 
 const Office = () => {
-  // State variables to store map data and selected office
-  const [mapData, setMapData] = useState([]);
-  const [selectedOffice, setSelectedOffice] = useState(null);
 
-  // Fetch map data from an API (example)
-  useEffect(() => {
-    const fetchMapData = async () => {
-      try {
-        const response = await fetch('https://api.example.com/agriculture-offices');
-        const data = await response.json();
-        setMapData(data);
-      } catch (error) {
-        console.error('Error fetching map data:', error);
+  const [agrioffice, setAgriOffice] = useState({})
+
+  const getAgriOffice = async () => {
+    if (sessionStorage.getItem("token")) {
+      const token = sessionStorage.getItem("token")
+      const reqHeader = {
+        "Content-Type": "application/json",
+        "Authorization": `Token ${token}`
       }
-    };
-
-    fetchMapData();
-  }, []);
-
-  // Function to handle selecting an office
-  const handleOfficeSelect = (office) => {
-    setSelectedOffice(office);
-  };
-
-  // Function to handle getting directions
-  const handleGetDirections = () => {
-    // Implement logic to open navigation service with selected office coordinates
-    if (selectedOffice) {
-      window.open(`https://maps.google.com/maps?q=${selectedOffice.latitude},${selectedOffice.longitude}`);
+      const result = await agriofficeAPI(reqHeader)
+      console.log(result.data.data);
+      setAgriOffice(result.data.data)
     }
-  };
+  }
+
+  useEffect(() => {
+    getAgriOffice()
+  }, [])
+
   return (
     <>
-    <div>
-      <MyHeader/>
-    <h2 style={{fontFamily:"serif",textAlign:"center"}}>Agriculture Offices Locator</h2>
-    {/* Map-based feature to locate nearby agriculture offices */}
-    <div>
-      {/* Render map with markers for agriculture offices */}
-      {/* Implement map functionality (e.g., Google Maps) */}
-    </div>
-    
-    {/* Contact information for agriculture offices */}
-    {selectedOffice && (
       <div>
-        <h3>{selectedOffice.name}</h3>
-        <p>Contact Information:</p>
-        <p>Email: {selectedOffice.email}</p>
-        <p>Phone: {selectedOffice.phone}</p>
-        <button onClick={handleGetDirections}>Get Directions</button>
+        <MyHeader />
+        <h2 style={{ fontFamily: "serif", textAlign: "center" }}>Agriculture Offices Locator</h2>
+
+
+        <div className="container mt-5">
+          {agrioffice?.length > 0 ?
+            agrioffice.map((item) => (<div className="row" style={{ alignItems: "center" }}>
+
+              <Card style={{ width: '50%', justifyContent: "center" }}>
+                <Card.Body>
+                  <Card.Title><span className="aboutfont">Name :</span> {item.name}  </Card.Title>
+                  <Card.Title><span className="aboutfont">Location :</span>{item.location}</Card.Title>
+                  <Card.Title><span className="aboutfont">Contact Number :</span> {item.contact_number}</Card.Title>
+                  <Card.Title><span className="aboutfont">Email Id :</span> {item.email} </Card.Title>
+
+
+
+                </Card.Body>
+              </Card>
+            </div>)) : <p>no data</p>
+          }
+        </div>
       </div>
-    )}
-  </div>
-  <Footer/>
-  </>
+      <Footer />
+    </>
   )
 }
 

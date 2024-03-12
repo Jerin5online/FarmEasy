@@ -30,9 +30,9 @@ function App() {
         <Route path="/feedback" element = {<Feedback/>} />
         <Route path="/news" element = {<News/>} />
         <Route path="/privacy" element = {<Privacy/>} />
-        <Route path="/login" element = {<Profile profile/>} />
+        <Route path="/login" element = {<Profile />} />
         <Route path="/adminhome" element = {<Adminhome/>} />
-        <Route path="/myheader" element = {<MyHeader />} />
+        <Route path="/myheader" element = {<MyHeader/>} />
 
  
         <Route path="/profile" element = {<Profile register/>} />

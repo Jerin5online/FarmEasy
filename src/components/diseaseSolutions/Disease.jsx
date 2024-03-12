@@ -34,15 +34,19 @@ const Disease = () => {
      disease.name.toLowerCase().includes(searchQuery.toLowerCase())
    );
   return (
-<div>
+<>
   <MyHeader/>
+   <div className="container">
       <h2>Disease Solutions</h2>
       {/* Platform for farmers to post complaints (not implemented in this example) */}
       <p>If you have a complaint about a crop disease, please contact our support team.</p>
       
       {/* Search functionality */}
       <div>
-        <input type="text" placeholder="Search for a disease..." value={searchQuery} onChange={handleSearchChange} />
+        <form class="d-flex">
+        <input value={searchQuery} onChange={handleSearchChange} class="form-control me-sm-2 w-25" type="search" placeholder="Search for a disease..."/>
+        <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
+      </form>
       </div>
       
       {/* Expert solutions and advice for common crop diseases */}
@@ -62,9 +66,10 @@ const Disease = () => {
           </ul>
         )}
       </div>
+      </div>
       <Footer/>
 
-    </div>
+    </>
   )
 }
 

@@ -46,9 +46,11 @@ const Crop = () => {
       {/* <div>
         <input type="text" placeholder="Search for a crop..." value={searchQuery} onChange={handleSearchChange} />
       </div> */}
-        <div class="input-group mb-3" style={{alignItems:"center",justifyContent:"center"}}>
-      <input value={searchQuery} onChange={handleSearchChange} type="text" class="form-control " className="w-25 rounded" placeholder="Search for a crop..." aria-label="Recipient's username" aria-describedby="button-addon2"/>
-      <button class="btn btn-primary rounded ms-2" type="button" id="button-addon2">SEARCH</button>
+      <div class="input-group mb-3" style={{alignItems:"center",justifyContent:"center"}}>
+        <form class="d-flex">
+          <input value={searchQuery} onChange={handleSearchChange} class="form-control me-sm-2 border border-dark" type="search" placeholder="Search for a crop..."/>
+           <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </div>
     <div className="container">
    

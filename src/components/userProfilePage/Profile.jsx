@@ -98,14 +98,17 @@ const Profile = ({ register }) => {
       console.log(result);
 
       if (result.status == 200)
-        if (username === "farmadmin" && password === "123") {
+        if (username === "Farmadmin" && password === "123") {
           Swal.fire({
             title: "Admin Succesfully Login !",
             icon: "success",
           });
+          sessionStorage.setItem("token", result.data.token)
+
           setTimeout(() => {
             navigate('/adminhome')
           }, 2000);
+
         }
         else {
           {
