@@ -37,14 +37,15 @@ const MyHeader = () => {
 
                 <Link className='fs-6 text-warning' to={'/about'}>CROP</Link>
                 <Link className='fs-6  text-warning' to={'/office'}>OFFICE</Link>
-                <Link className='fs-6   text-warning' to={'/disease'}>DISEASE</Link>
-                <Link className='fs-6  text-warning' to={'/feedback'}>FEEDBACK</Link>
                 <Link className='fs-6  text-warning' to={'/news'}>NEWS</Link>
+                <Link className='fs-6  text-warning' to={'/feedback'}>FEEDBACK</Link>
+                <Link className='fs-6  text-warning' to={'/products'}>PRODUCTS</Link>
+
+
+                {/* <Link className='fs-6  text-warning' to={'/disease'}>Disease</Link> */}
+
                 {islogin? <Link to={'/login'} onClick={handleLogout} className='fs-6  text-warning'>LOGOUT</Link>:
                    <Link className='fs-6  text-warning' to={'/profile'}>LOGIN</Link>}
-
-
-
               </Nav>
 
             </div>

@@ -27,5 +27,17 @@ export const agriofficeAPI = async (reqHeader) => {
 //get news
 
 export const newsAPI = async (reqHeader) => {
-              return await commonAPI("GET", `${BASE_URL}/farmease/usernews/`, "", reqHeader);
-            };
+return await commonAPI("GET", `${BASE_URL}/farmease/usernews/`, "", reqHeader);
+};
+
+
+//get disease solutions
+
+export const diseaseAPI = async(reqHeader)=>{
+ return await commonAPI("GET", `${BASE_URL}/farmease/solutions/`, "", reqHeader); 
+}
+
+//getproducts
+export const productsAPI = async(reqHeader)=>{
+  return await commonAPI("GET", `${BASE_URL}/farmease/farmer-products/`,"", reqHeader); 
+ }

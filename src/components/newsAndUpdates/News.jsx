@@ -41,13 +41,6 @@ const News = () => {
   useEffect(() => {
     getnews()
   }, [])
-      
-    
-  
-
-
-
-
   return (
     <>
     <MyHeader/>

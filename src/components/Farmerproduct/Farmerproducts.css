@@ -1,0 +1,9 @@
+.products{
+text-align: center;
+}
+.price{
+padding: 3px;
+border-radius: 3px;
+width: 50px;
+background-color: orange;
+}

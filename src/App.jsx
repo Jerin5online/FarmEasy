@@ -15,6 +15,7 @@ import Adminhome from "./components/Admin/Adminhome";
 import MyHeader from "./components/myHeader/MyHeader";
 import Addnews from "./newsadd/Addnews";
 import Addcrops from "./cropadd/Addcrops";
+import Farmerproduct from "./components/Farmerproduct/Farmerproduct";
 // import LoginSignUp from "./components/loginSignUp/LoginSignUp";
 
 
@@ -38,6 +39,7 @@ function App() {
         <Route path="/addnews" element = {<Addnews/>} />
         <Route path="/profile" element = {<Profile register/>} />
         <Route path="/addcrop" element={<Addcrops/>}/>
+        <Route path="/products" element={<Farmerproduct/>}/>
         {/* <Route path="/loginsignup" element = {<LoginSignUp/>} /> */}
 
       </Routes>
