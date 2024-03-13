@@ -15,10 +15,17 @@ export const loginAPI = async (user) => {
 
 //get crops information
 export const cropsinfoAPI = async (reqHeader) => {
-  return await commonAPI("GET", `${BASE_URL}/farmease/crops/`, "", reqHeader);
+  return await commonAPI("GET", `${BASE_URL}/farmease/usercrops/`, "", reqHeader);
 };
 
 //get agriculture office details
 export const agriofficeAPI = async (reqHeader) => {
-  return await commonAPI("GET", `${BASE_URL}/farmease/agriculture-offices/`, "", reqHeader);
+  return await commonAPI("GET", `${BASE_URL}/farmease/user/agriculture-offices/`, "", reqHeader);
 };
+
+
+//get news
+
+export const newsAPI = async (reqHeader) => {
+              return await commonAPI("GET", `${BASE_URL}/farmease/usernews/`, "", reqHeader);
+            };

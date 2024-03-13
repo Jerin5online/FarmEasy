@@ -17,8 +17,8 @@ const Office = () => {
         "Authorization": `Token ${token}`
       }
       const result = await agriofficeAPI(reqHeader)
-      console.log(result.data.data);
-      setAgriOffice(result.data.data)
+      console.log(result.data);
+      setAgriOffice(result.data)
     }
   }
 

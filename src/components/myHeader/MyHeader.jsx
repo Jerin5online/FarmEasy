@@ -33,15 +33,13 @@ const MyHeader = () => {
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarColor01">
-              <Nav style={{ marginLeft: "15rem", gap: "2em" }}>
+              <Nav style={{ marginLeft: "22rem", gap: "2em" }}>
 
-                <Link className='fs-6 text-warning' to={'/about'}>ABOUT</Link>
+                <Link className='fs-6 text-warning' to={'/about'}>CROP</Link>
                 <Link className='fs-6  text-warning' to={'/office'}>OFFICE</Link>
-                <Link className='fs-6  text-warning' to={'/crop'}>CROP</Link>
                 <Link className='fs-6   text-warning' to={'/disease'}>DISEASE</Link>
                 <Link className='fs-6  text-warning' to={'/feedback'}>FEEDBACK</Link>
                 <Link className='fs-6  text-warning' to={'/news'}>NEWS</Link>
-                <Link className='fs-6  text-warning' to={'/privacy'}>TERMS</Link>
                 {islogin? <Link to={'/login'} onClick={handleLogout} className='fs-6  text-warning'>LOGOUT</Link>:
                    <Link className='fs-6  text-warning' to={'/profile'}>LOGIN</Link>}
 
