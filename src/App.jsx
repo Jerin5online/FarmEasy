@@ -13,9 +13,11 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Adminhome from "./components/Admin/Adminhome";
 import MyHeader from "./components/myHeader/MyHeader";
-import Addnews from "./newsadd/Addnews";
-import Addcrops from "./cropadd/Addcrops";
+import Addnews from "./components/newsadd/Addnews";
+import Addcrops from "./components/cropadd/Addcrops";
 import Farmerproduct from "./components/Farmerproduct/Farmerproduct";
+import Addoffice from "./components/agriculture office/Addoffice";
+import ProfilePage from "./components/profilepage/ProfilePage";
 // import LoginSignUp from "./components/loginSignUp/LoginSignUp";
 
 
@@ -40,6 +42,9 @@ function App() {
         <Route path="/profile" element = {<Profile register/>} />
         <Route path="/addcrop" element={<Addcrops/>}/>
         <Route path="/products" element={<Farmerproduct/>}/>
+        <Route path="/addoffice" element={<Addoffice/>}/>
+        <Route path="/profilepage" element={<ProfilePage/>}/>
+
         {/* <Route path="/loginsignup" element = {<LoginSignUp/>} /> */}
 
       </Routes>

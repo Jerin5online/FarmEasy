@@ -46,10 +46,10 @@ const Crop = () => {
       {/* <div>
         <input type="text" placeholder="Search for a crop..." value={searchQuery} onChange={handleSearchChange} />
       </div> */}
-      <div class="input-group mb-3" style={{alignItems:"center",justifyContent:"center"}}>
-        <form class="d-flex">
-          <input value={searchQuery} onChange={handleSearchChange} class="form-control me-sm-2 border border-dark" type="search" placeholder="Search for a crop..."/>
-           <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      <div className="input-group mb-3" style={{alignItems:"center",justifyContent:"center"}}>
+        <form className="d-flex">
+          <input value={searchQuery} onChange={handleSearchChange} className="form-control me-sm-2 border border-dark" type="search" placeholder="Search for a crop..."/>
+           <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
     <div className="container">

@@ -44,8 +44,8 @@ const Disease = () => {
 
 
       <div>
-        <form class="d-flex">
-        <input  onChange={(e)=>setSearchQuery(e.target.value)} class="form-control me-sm-2 w-25" type="search" placeholder="Search for a disease..."/>
+        <form className="d-flex">
+        <input  onChange={(e)=>setSearchQuery(e.target.value)} className="form-control me-sm-2 w-25" type="search" placeholder="Search for a disease..."/>
       </form>
   
       {

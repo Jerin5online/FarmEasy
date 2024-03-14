@@ -1,10 +1,18 @@
 .adminheader{
-              width: 300px;
-              height: 95vh;
-              background-color: rgb(111, 194, 100);
-              border-radius: 30px;
+              width: 500px;
+              background-color: rgb(255, 255, 255);
+              margin-left: 10rem;
+              height: 270px;
+              border-radius: 5px;
           }
           .link{
               text-decoration: none;
-              color: white;
+              color: rgb(0, 0, 0);
           }
+
+    .bgadmin{
+        background-image: url("https://img.freepik.com/free-photo/coffee-technologies-composition_23-2147772389.jpg?w=1060&t=st=1710407618~exp=1710408218~hmac=ec7a5d3439c14722597ec32fa6effb4dcd1fb1d79525e27a263f4524803a7659");
+        height: 800px;
+        background-size: cover;
+    }
+

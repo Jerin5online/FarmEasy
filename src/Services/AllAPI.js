@@ -41,3 +41,18 @@ export const diseaseAPI = async(reqHeader)=>{
 export const productsAPI = async(reqHeader)=>{
   return await commonAPI("GET", `${BASE_URL}/farmease/farmer-products/`,"", reqHeader); 
  }
+
+ //add news
+ export const addnewsAPI = async(reqBody,reqHeader)=>{
+  return await commonAPI("POST", `${BASE_URL}/farmease/news/`,reqBody, reqHeader); 
+ }
+
+  //add crop
+  export const addcropAPI = async(reqBody,reqHeader)=>{
+    return await commonAPI("POST", `${BASE_URL}/farmease/crops/`,reqBody, reqHeader); 
+   }
+
+   //addmin get
+  //  export const getAdminInfoAPI = async(reqHeader)=>{
+  //   return await commonAPI("GET", `${BASE_URL}/farmease/register/`,"", reqHeader); 
+  //  }

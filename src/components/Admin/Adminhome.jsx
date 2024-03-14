@@ -1,75 +1,82 @@
-import React from 'react'
-import { PieChart } from '@mui/x-charts/PieChart';
-import { BarChart } from '@mui/x-charts/BarChart';
+import React, { useState } from 'react'
+
 import Adminheader from './Adminheader';
+import {
+  MDBCol,
+  MDBContainer,
+  MDBRow,
+  MDBCard,
+  MDBCardBody,
+  MDBCardImage,
+
+  
+} from 'mdb-react-ui-kit';
+import EditAdmin from './EditAdmin';
+
 
 function Adminhome() {
+ 
+  // const [adminInfo , setAdminInfo] = useState({})
+
+  // const getAminInfo = async ()=>{
+  //   if(sessionStorage.getItem("token")){
+  //     const token = sessionStorage.getItem("token")
+  //     const reqHeader ={
+  //       "Content-Type": "application/json",
+  //       "Authorization": `Token ${token}`
+  //     }
+  //     const result = await getAdminInfoAPI(reqHeader)
+  //     console.log(result);
+  //     setAdminInfo(result)
+  //   }
+  // }
+  // useState(()=>{
+  //    getAminInfo()
+  // },[])
+
   return (
     <>
-      <div className='d-flex'>
-        <Adminheader/>
-       {/*  div
-         <div className='mt-5 ms-5'>
-           <PieChart
-          series={[
-            {
-              data: [
-                { id: 0, value: 10, label: 'series A' },
-                { id: 1, value: 15, label: 'series B' },
-                { id: 2, value: 20, label: 'series C' },
-              ],
-            },
-          ]}
-          width={400}
-          height={200}
-        />
-         </div>
-         <div className='ms-5'>
-         <BarChart
-      xAxis={[{ scaleType: 'band', data: ['group A', 'group B', 'group C'] }]}
-      series={[{ data: [4, 3, 5] }, { data: [1, 6, 3] }, { data: [2, 5, 6] }]}
-      width={500}
-      height={300}
-    />
-         </div> */}
-         <div className='dashboard'>
-          <div className='mt-5 ms-5 p-2'>
-            <h1 className='ms-3'>WELCOME ADMIN</h1>
-          </div>
-          <div className='mt-5 d-flex'>
-            <div className='piechart mt-5'>
-              <PieChart
-                series={[
-                  {
-                    data: [
-                      { id: 0, value: 10, label: 'Cancelled' },
-                      { id: 1, value: 15, label: 'Available' },
-                      { id: 2, value: 20, label: 'Booked' },
-                    ],
-                  },
-                ]}
-                width={400}
-                height={200}
-              />
-            </div>
-            <div className='me-5 mb-5 ms-5'>
-                  <h2 className='mt-5 text-center'>Scheduled Trains</h2>
-              <BarChart
-                series={[
-                  { data: [35, 44, 24, 34] },
-                  { data: [51, 6, 49, 30] },
-                  { data: [15, 25, 30, 50] },
-                  { data: [60, 50, 15, 25] },
-                ]}
-                height={290}
-                width={500}
-                xAxis={[{ data: ['17/03/2024', '18/03/2024', '19/03/2024', '20/03/2024'], scaleType: 'band' }]}
-                margin={{ top: 10, bottom: 30, left: 40, right: 10 }}
-              />
-            </div>
-          </div>
-       </div>
-      </div>
+    
+ <div className='bgadmin d-flex align-items-center justify-content-center'>
+
+
+ <section className='mt-5' >
+      <MDBContainer >
+        
+<h1 style={{fontFamily:"fantasy"}}>WELCOME ADMIN</h1>
+        <MDBRow>
+          <MDBCol lg="4">
+            <MDBCard className="mb-4">
+              <MDBCardBody className="text-center">
+                <MDBCardImage
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                  alt="avatar"
+                  className="rounded-circle"
+                  style={{ width: '150px' }}
+                  fluid />
+                <p className="text-muted mb-1">FARMEASE ADMIN PANNEL</p>
+                <p className="text-muted mb-4"></p>
+                <div className="d-flex justify-content-center mb-2">
+                  
+                  <EditAdmin/>
+                </div>
+              </MDBCardBody>
+            </MDBCard>
+
+            
+          </MDBCol>
+          <MDBCol lg="8">
+              <Adminheader/>
+           </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+    </section>
+ </div>
+  
+    
+ 
+        
+      
        
     </>
   )

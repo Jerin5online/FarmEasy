@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react'
 import "./About.css"
 import MyHeader from '../myHeader/MyHeader';
 import Footer from '../footer/Footer';
-import { cropsinfoAPI } from '../../Services/AllAPI';
 import { Link } from 'react-router-dom';
+import { cropsinfoAPI } from '../../Services/AllAPI';
 
 
 const About = () => {
@@ -41,11 +41,11 @@ const About = () => {
   return (
     <>
       <MyHeader />
-      <div class="container mt-5">
+      <div className="container mt-5">
         <h1 style={{ fontFamily: "serif" }}>Crop Information</h1>
-        <div class="input-group mb-5" style={{alignItems:"center",justifyContent:"center"}}>
-        <form class="d-flex">
-          <input onChange={(e)=>setSearch(e.target.value)} class="form-control me-sm-2 border border-dark" type="search" placeholder="Search for a crop..."/>
+        <div className="input-group mb-5" style={{alignItems:"center",justifyContent:"center"}}>
+        <form className="d-flex">
+          <input onChange={(e)=>setSearch(e.target.value)} className="form-control me-sm-2 border border-dark" type="search" placeholder="Search for a crop..."/>
         </form>
     </div>
        {cropsInfo?.length>0?

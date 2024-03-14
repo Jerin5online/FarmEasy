@@ -1,9 +1,9 @@
 import { Card } from "react-bootstrap";
-import { newsAPI } from "../../Services/AllAPI";
 import Footer from "../footer/Footer";
 import MyHeader from "../myHeader/MyHeader";
 import "./News.css";
 import React, { useState, useEffect } from 'react';
+import { newsAPI } from "../../Services/AllAPI";
 
 
 const News = () => {

@@ -40,12 +40,14 @@ const MyHeader = () => {
                 <Link className='fs-6  text-warning' to={'/news'}>NEWS</Link>
                 <Link className='fs-6  text-warning' to={'/feedback'}>FEEDBACK</Link>
                 <Link className='fs-6  text-warning' to={'/products'}>PRODUCTS</Link>
+                <Link className='fs-6  text-warning' to={'/profilepage'}>PROFILE</Link>
+
 
 
                 {/* <Link className='fs-6  text-warning' to={'/disease'}>Disease</Link> */}
 
                 {islogin? <Link to={'/login'} onClick={handleLogout} className='fs-6  text-warning'>LOGOUT</Link>:
-                   <Link className='fs-6  text-warning' to={'/profile'}>LOGIN</Link>}
+                   <Link className='fs-6  text-warning' to={'/login'}>LOGIN</Link>}
               </Nav>
 
             </div>

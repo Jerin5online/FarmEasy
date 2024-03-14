@@ -63,50 +63,50 @@ const Feedback = () => {
     <>
     <MyHeader/>
     <form>
-        <div class="container">
-            <div class="mx-auto text-center mb-5" style={{maxWidth:"500px"}}>
-                <h1 class="display-5">Please Feel Free To Contact Us</h1>
+        <div clasNames="container">
+            <div className="mx-auto text-center mb-5" style={{maxWidth:"500px"}}>
+                <h1 clasNames="display-5">Please Feel Free To Contact Us</h1>
             </div>
-            <div class="row g-0">
-                <div class="col-lg-7">
-                    <div class="bg-primary h-100 p-5">
+            <div className="row g-0">
+                <div className="col-lg-7">
+                    <div className="bg-primary h-100 p-5">
                         <form onSubmit={handleSubmit}>
-                            <div class="row g-3">
+                            <div className="row g-3">
                                
-                                <div class="col-12">
-                                    <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required class="form-control bg-light border-0 px-4" placeholder="Your Email" style={{height:"55px"}}/>
+                                <div className="col-12">
+                                    <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="form-control bg-light border-0 px-4" placeholder="Your Email" style={{height:"55px"}}/>
                                 </div>
-                                <div class="col-12">
-                                    <textarea   id="feedback" value={feedback} onChange={(e) => setFeedback(e.target.value)} required class="form-control bg-light border-0 px-4 py-3" rows="2" placeholder="Message"></textarea>
+                                <div className="col-12">
+                                    <textarea   id="feedback" value={feedback} onChange={(e) => setFeedback(e.target.value)} required className="form-control bg-light border-0 px-4 py-3" rows="2" placeholder="Message"></textarea>
                                 </div>
-                                <div class="col-12">
-                                    <button class="btn btn-secondary w-100 py-3" type="submit">Send Feedback</button>
+                                <div className="col-12">
+                                    <button className="btn btn-secondary w-100 py-3" type="submit">Send Feedback</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-5">
-                    <div class="bg-secondary h-100 p-5">
-                        <h2 class="text-white mb-4">Get In Touch</h2>
-                        <div class="d-flex mb-4">
+                <div className="col-lg-5">
+                    <div className="bg-secondary h-100 p-5">
+                        <h2 className="text-white mb-4">Get In Touch</h2>
+                        <div className="d-flex mb-4">
                            
                         </div>
-                        <div class="d-flex mb-4">
-                            <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style={{height:"60px",width:"60px"}}>
-                                <i class="fa-solid fa-envelope fs-4 text-light"></i>                            </div>
-                            <div class="ps-3">
-                                <h5 class="text-white">Email Us</h5>
-                                <span class="text-white">info@example.com</span>
+                        <div className="d-flex mb-4">
+                            <div className="bg-primary rounded-circle d-flex align-items-center justify-content-center" style={{height:"60px",width:"60px"}}>
+                                <i className="fa-solid fa-envelope fs-4 text-light"></i>                            </div>
+                            <div className="ps-3">
+                                <h5 className="text-white">Email Us</h5>
+                                <span className="text-white">info@example.com</span>
                             </div>
                         </div>
-                        <div class="d-flex">
-                            <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style={{height:"60px",width:"60px"}}>
-                            <i class="fa-solid fa-phone fs-4 text-light"></i>
+                        <div className="d-flex">
+                            <div className="bg-primary rounded-circle d-flex align-items-center justify-content-center" style={{height:"60px",width:"60px"}}>
+                            <i className="fa-solid fa-phone fs-4 text-light"></i>
                             </div>
-                            <div class="ps-3">
-                                <h5 class="text-white">Call Us</h5>
-                                <span class="text-white">+012 345 6789</span>
+                            <div className="ps-3">
+                                <h5 className="text-white">Call Us</h5>
+                                <span className="text-white">+012 345 6789</span>
                             </div>
                         </div>
                     </div>

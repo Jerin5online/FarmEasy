@@ -108,7 +108,6 @@ const Home = () => {
     <div>
       
       <div>
-        <h3>Latest News Updates in Agriculture</h3>
         <ul>
           {newsData.map((article, index) => (
             <li key={index}>
