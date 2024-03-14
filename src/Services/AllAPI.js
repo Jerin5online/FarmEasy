@@ -51,8 +51,9 @@ export const productsAPI = async(reqHeader)=>{
   export const addcropAPI = async(reqBody,reqHeader)=>{
     return await commonAPI("POST", `${BASE_URL}/farmease/crops/`,reqBody, reqHeader); 
    }
-
    //addmin get
   //  export const getAdminInfoAPI = async(reqHeader)=>{
   //   return await commonAPI("GET", `${BASE_URL}/farmease/register/`,"", reqHeader); 
   //  }
+
+  hi da
