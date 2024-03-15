@@ -37,12 +37,9 @@ const Disease = () => {
 <>
    <div className="container mt-5">
       <h2>Disease Solutions</h2>
-      {/* Platform for farmers to post complaints (not implemented in this example) */}
+
       <p>If you have a complaint about a crop disease, please contact our support team.</p>
       
-      {/* Search functionality */}
-
-
       <div>
         <form className="d-flex">
         <input  onChange={(e)=>setSearchQuery(e.target.value)} className="form-control me-sm-2 w-25" type="search" placeholder="Search for a disease..."/>
