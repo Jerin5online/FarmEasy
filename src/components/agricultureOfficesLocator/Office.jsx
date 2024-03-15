@@ -4,10 +4,12 @@ import MyHeader from "../myHeader/MyHeader";
 import "./Office.css";
 import { useEffect, useState } from "react";
 import { agriofficeAPI } from "../../Services/AllAPI";
+import { Link } from "react-router-dom";
 
 const Office = () => {
 
   const [agrioffice, setAgriOffice] = useState({})
+  const [istoken,setIstoken] = useState(false)
 
   const getAgriOffice = async () => {
     if (sessionStorage.getItem("token")) {
@@ -26,6 +28,12 @@ const Office = () => {
     getAgriOffice()
   }, [])
 
+  useEffect(()=>{
+    if (sessionStorage.getItem("token")) {
+      setIstoken(true)
+    }
+  },[])
+  
   return (
     <>
       <div>
@@ -48,7 +56,11 @@ const Office = () => {
 
                 </Card.Body>
               </Card>
-            </div>)) : <p>no data</p>
+            </div>)) : <div>
+             {istoken?<p style={{marginBottom:"500px" ,fontSize:"50px"}} className=' text-danger  text-center'>sorry! no such Crops currently available</p> : <div className='d-flex justify-content-center align-items-center flex-column mb-5'>
+                <img src="https://cdn-icons-png.flaticon.com/512/6360/6360303.png" alt="login gif" height={'300px'} width={'300px'} />
+                <p className='mt-5' style={{textDecoration:"ActiveBorder"}}>PLEASE<Link style={{textDecoration:"none", color:"purple"}} to={'/login'}> LOGIN</Link></p></div>}
+            </div>
           }
         </div>
       </div>

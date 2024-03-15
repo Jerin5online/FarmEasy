@@ -60,3 +60,9 @@ export const productsAPI = async(reqHeader)=>{
   export const addAgriofficeAPI = async (reqBody,reqHeader) => {
     return await commonAPI("POST", `${BASE_URL}/farmease/agriculture-offices/`, reqBody, reqHeader);
   };
+
+  //add userdetails
+
+ export const adduserAPI = async(reqHeader)=>{
+    return await commonAPI("GET",`${BASE_URL}/farmease/users/`,"", reqHeader); 
+   }

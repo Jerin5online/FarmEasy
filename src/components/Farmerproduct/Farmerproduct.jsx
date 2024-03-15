@@ -5,9 +5,13 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { productsAPI } from '../../Services/AllAPI';
 import { BASE_URL } from '../../Services/BaseURL';
+import { Link } from 'react-router-dom';
+import Addproduct from '../Addproducts/Addproduct';
 
 function Farmerproduct() {
   const [products, setProducts] = useState([]);
+
+  const [isToken, setIsToken] = useState(false)
 
   const getProducts = async () => {
     if (sessionStorage.getItem("token")) {
@@ -29,10 +33,17 @@ function Farmerproduct() {
     getProducts();
   }, []);
 
+  useEffect(()=>{
+    if (sessionStorage.getItem("token")) {
+     setIsToken(true)
+    }
+  },[])
+
   return (
     <>
       <MyHeader />
       <h1 className='container'>PRODUCTS</h1>
+     
       <div className="row">
         {products?.length > 0 ?
           products.map((item, index) => (
@@ -55,7 +66,11 @@ function Farmerproduct() {
               </Card>
             </div>
           )) :
-          <p>no products</p>
+          <div>
+             {isToken?<p style={{marginBottom:"500px" ,fontSize:"50px"}} className=' text-danger  text-center'>sorry! no such Crops currently available</p> : <div className='d-flex justify-content-center align-items-center flex-column mb-5'>
+                <img src="https://cdn-icons-png.flaticon.com/512/6360/6360303.png" alt="login gif" height={'300px'} width={'300px'} />
+                <p className='mt-5' style={{textDecoration:"ActiveBorder"}}>PLEASE<Link style={{textDecoration:"none", color:"purple"}} to={'/login'}> LOGIN</Link></p></div>}
+            </div>
         }
       </div>
     </>

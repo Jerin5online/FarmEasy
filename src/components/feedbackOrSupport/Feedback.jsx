@@ -19,47 +19,6 @@ const Feedback = () => {
     setEmail("");
   };
   return (
-    // <div>
-    //   <h2>Feedback/Support</h2>
-    //   <p>
-    //     Provide your feedback or seek support by filling out the form below:
-    //   </p>
-
-    //   {/* Feedback/support form */}
-    //   <form onSubmit={handleSubmit}>
-    //     <div>
-    //       <label htmlFor="feedback">Feedback/Support:</label>
-    //       <textarea
-    //         id="feedback"
-    //         value={feedback}
-    //         onChange={(e) => setFeedback(e.target.value)}
-    //         required
-    //       />
-    //     </div>
-    //     <div>
-    //       <label htmlFor="email">Email:</label> 
-    //       <input
-    //         type="email"
-    //         id="email"
-    //         value={email}
-    //         onChange={(e) => setEmail(e.target.value)}
-    //         required
-    //       />
-    //     </div>
-    //     <button type="submit">Submit</button>
-    //   </form>
-
-    //   {/* Contact information for technical support or inquiries */}
-    //   <div>
-    //     <h3>Contact Information</h3>
-    //     <p>For technical support or inquiries, please contact us:</p>
-    //     <ul>
-    //       <li>Email: support@farmeaseapp.com</li>
-    //       <li>Phone: 123-456-7890</li>
-    //       {/* Add more contact information as needed */}
-    //     </ul>
-    //   </div>
-    // </div>
     <>
     <MyHeader/>
     <form>
@@ -114,10 +73,7 @@ const Feedback = () => {
             </div>
         </div>
     </form>
-    
-    
-    
-    <Footer/>
+   <Footer/>
     </>
   );
 };
