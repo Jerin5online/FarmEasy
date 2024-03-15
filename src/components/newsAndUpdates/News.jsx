@@ -4,25 +4,15 @@ import MyHeader from "../myHeader/MyHeader";
 import "./News.css";
 import React, { useState, useEffect } from 'react';
 import { newsAPI } from "../../Services/AllAPI";
+import { Link } from "react-router-dom";
 
 
 const News = () => {
   const [newsData, setNewsData] = useState([]);
+  const [istoken,setIstoken] = useState(false)
 
-  // Fetch news data from an API (example)
-  // useEffect(() => {
-  //   const fetchNewsData = async () => {
-  //     try {
-  //       const response = await fetch('https://api.example.com/news');
-  //       const data = await response.json();
-  //       setNewsData(data.articles);
-  //     } catch (error) {
-  //       console.error('Error fetching news data:', error);
-  //     }
-  //   };
 
-  //   fetchNewsData();
-  // }, []);
+ 
 
   const getnews = async()=>{
     if (sessionStorage.getItem("token")) {
@@ -41,6 +31,12 @@ const News = () => {
   useEffect(() => {
     getnews()
   }, [])
+
+  useEffect(()=>{
+    if (sessionStorage.getItem("token")) {
+      setIstoken(true)
+    }
+  },[])
   return (
     <>
     <MyHeader/>
@@ -59,7 +55,11 @@ const News = () => {
 
      </Card.Body>
    </Card>
-   </div>)):<p>No News Available</p>}
+   </div>)):<div>
+             {istoken?<p style={{marginBottom:"500px" ,fontSize:"50px"}} className=' text-danger  text-center'>sorry! no such Crops currently available</p> : <div className='d-flex justify-content-center align-items-center flex-column mb-5'>
+                <img src="https://cdn-icons-png.flaticon.com/512/6360/6360303.png" alt="login gif" height={'300px'} width={'300px'} />
+                <p className='mt-5' style={{textDecoration:"ActiveBorder"}}>PLEASE<Link style={{textDecoration:"none", color:"purple"}} to={'/login'}> LOGIN</Link></p></div>}
+            </div>}
      </div>
     <Footer/>
     </>

@@ -1,0 +1,52 @@
+ .form-control:focus {
+              box-shadow: none;
+              border-color: #BA68C8
+          }
+          
+          .profile-button {
+              background: rgb(99, 39, 120);
+              box-shadow: none;
+              border: none
+          }
+          
+          .profile-button:hover {
+              background: #682773
+          }
+          
+          .profile-button:focus {
+              background: #682773;
+              box-shadow: none
+          }
+          
+          .profile-button:active {
+              background: #682773;
+              box-shadow: none
+          }
+          
+          .back:hover {
+              color: #682773;
+              cursor: pointer
+          }
+          
+          .labels {
+              font-size: 11px
+          }
+          
+          
+          .add-experience:hover {
+              background: #BA68C8;
+              color: #fff;
+              cursor: pointer;
+              border: solid 1px #BA68C8
+          }
+
+.bgprofilepage{
+              background-image: url("https://img.freepik.com/free-vector/online-community_24877-50887.jpg?t=st=1710480416~exp=1710484016~hmac=619348c773002c38d2c7e46934eb8917a57dfd7c8a95330ea79367c65ebbb02c&w=740");
+              height: 730px;
+              background-size: cover;
+              background-attachment: fixed;
+              
+}
+.profilepage{
+margin-left: 9em;
+}

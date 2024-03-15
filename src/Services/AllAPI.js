@@ -55,3 +55,9 @@ export const productsAPI = async(reqHeader)=>{
   //  export const getAdminInfoAPI = async(reqHeader)=>{
   //   return await commonAPI("GET", `${BASE_URL}/farmease/register/`,"", reqHeader); 
   //  }
+
+  //add userdetails
+
+ export const adduserAPI = async(reqHeader)=>{
+    return await commonAPI("GET",`${BASE_URL}/farmease/users/`,"", reqHeader); 
+   }

@@ -5,9 +5,9 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 const MyHeader = () => {
-  
 
-  const [islogin , setIsLogin] = useState(false)
+
+  const [islogin, setIsLogin] = useState(false)
 
   const navigate = useNavigate()
 
@@ -18,15 +18,15 @@ const MyHeader = () => {
     navigate('/')
   }
 
-  useEffect(()=>{
-       if(sessionStorage.getItem("token")){
-        setIsLogin(true)
-       }
-  },[])
+  useEffect(() => {
+    if (sessionStorage.getItem("token")) {
+      setIsLogin(true)
+    }
+  }, [])
   return (
     <>
       <div>
-        <nav class="navbar navbar-expand-lg bg-primary " data-bs-theme="dark" style={{ marginBottom: "60px", height: "80px" }}>
+        <nav class="navbar navbar-expand-lg bg-primary " data-bs-theme="dark" style={{  height: "80px" }}>
           <div class="container-fluid">
             <Nav.Link href="/" className='fs-3 text-white' style={{ fontFamily: "serif" }}> <i class="fa-solid fa-wheat-awn fa-bounce"></i> FARM-EASE</Nav.Link>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,14 +40,26 @@ const MyHeader = () => {
                 <Link className='fs-6  text-warning' to={'/news'}>NEWS</Link>
                 <Link className='fs-6  text-warning' to={'/feedback'}>FEEDBACK</Link>
                 <Link className='fs-6  text-warning' to={'/products'}>PRODUCTS</Link>
-                <Link className='fs-6  text-warning' to={'/profilepage'}>PROFILE</Link>
 
 
 
                 {/* <Link className='fs-6  text-warning' to={'/disease'}>Disease</Link> */}
 
-                {islogin? <Link to={'/login'} onClick={handleLogout} className='fs-6  text-warning'>LOGOUT</Link>:
-                   <Link className='fs-6  text-warning' to={'/login'}>LOGIN</Link>}
+                {islogin ? (
+                  <>
+                    <Link className='fs-6 text-warning' to={'/profilepage'}>
+                      PROFILE
+                    </Link>
+                    <Link to={'/login'} onClick={handleLogout} className='fs-6 text-warning'>
+                      LOGOUT
+                    </Link>
+                  </>
+                ) : (
+                  <Link className='fs-6 text-warning' to={'/login'}>
+                    LOGIN
+                  </Link>
+                )}
+
               </Nav>
 
             </div>

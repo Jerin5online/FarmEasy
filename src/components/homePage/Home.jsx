@@ -28,7 +28,7 @@ const Home = () => {
   return (<>
 <MyHeader Home/>
     <div>
-     <Carousel data-bs-theme="dark" className="w-100" style={{marginTop:"-65px"}}>
+     <Carousel data-bs-theme="dark" className="w-100">
       <Carousel.Item>
         <img
           className="d-block w-100 " style={{height:"700px"}}
