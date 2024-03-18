@@ -61,7 +61,7 @@ function Farmerproduct() {
                   <ListGroup.Item>PRICE: <button className='price'>₹ {item.data.price}</button></ListGroup.Item>
                 </ListGroup>
                 <Card.Body>
-                  <Card.Link href="#" className='text-decoration-none'>BUY NOW</Card.Link>
+                  <Link to={'/orderpage'} className='text-decoration-none'>BUY NOW</Link>
                 </Card.Body>
               </Card>
             </div>

@@ -18,6 +18,7 @@ import Addcrops from "./components/cropadd/Addcrops";
 import Farmerproduct from "./components/Farmerproduct/Farmerproduct";
 import Addoffice from "./components/agriculture office/Addoffice";
 import ProfilePage from "./components/profilepage/ProfilePage";
+import Orderproduct from "./components/orderproduct/Orderproduct";
 // import LoginSignUp from "./components/loginSignUp/LoginSignUp";
 
 
@@ -45,6 +46,7 @@ function App() {
         <Route path="/addoffice" element={<Addoffice/>}/>
         <Route path="/profilepage" element={<ProfilePage/>}/>
 
+        <Route path="/orderpage" element={<Orderproduct/>}/>
         {/* <Route path="/loginsignup" element = {<LoginSignUp/>} /> */}
 
       </Routes>

@@ -12,7 +12,11 @@ const Addcrops = () => {
     climate: "",
     growth_period: "",
     harvesting_time: "",
-    techniques:[]
+    techniques:{
+      field1:""
+      ,field2: ""
+    }
+    
   });
 
   console.log(addcrop);
