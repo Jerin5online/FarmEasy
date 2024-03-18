@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import "./Addnews.css";
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { addnewsAPI } from '../../Services/AllAPI';
 import News from '../newsAndUpdates/News';
+import { addNewsResponseContext } from '../../contexts/ContextShare';
 
 const Addnews = () => {
+
+  const {addNewsResponse , setAddNewsResponse} = useContext(addNewsResponseContext)
   const [addnews, setAddnews] = useState({
     title: "",
     content: ""
@@ -66,6 +69,7 @@ const Addnews = () => {
           setNewsList([...newsList, result.data]);
           // Clear the form fields after successful addition
           setAddnews({ title: "", content: "" });
+          setAddNewsResponse(result.data)
         } else {
           console.log(result.response.data);
         }

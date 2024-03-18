@@ -2,9 +2,10 @@ import { Card } from "react-bootstrap";
 import Footer from "../footer/Footer";
 import MyHeader from "../myHeader/MyHeader";
 import "./News.css";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { newsAPI } from "../../Services/AllAPI";
 import { Link } from "react-router-dom";
+import { addNewsResponseContext } from "../../contexts/ContextShare";
 
 
 const News = () => {
@@ -12,7 +13,7 @@ const News = () => {
   const [istoken,setIstoken] = useState(false)
 
 
- 
+  const {addNewsResponse , setAddNewsResponse} = useContext(addNewsResponseContext)
 
   const getnews = async()=>{
     if (sessionStorage.getItem("token")) {
@@ -30,7 +31,7 @@ const News = () => {
   }
   useEffect(() => {
     getnews()
-  }, [])
+  }, [addNewsResponse])
 
   useEffect(()=>{
     if (sessionStorage.getItem("token")) {
