@@ -5,7 +5,14 @@ import { EdituserprofileAPI, addnewsAPI, adduserAPI } from '../../Services/AllAP
 import Addproduct from '../Addproducts/Addproduct'
 
 import Swal from 'sweetalert2'
+import axios from 'axios'
 // 
+const userString = sessionStorage.getItem("user")
+const user = JSON.parse(userString)
+console.log(user.id);
+const token = sessionStorage.getItem('token')
+
+
 const ProfilePage = () => {
   const[userprofile,setUserprofile] = useState({
           user_type: "",
@@ -15,15 +22,15 @@ const ProfilePage = () => {
           address: "",
           location: "",
   })
-
+  
   const[preview,setPreview]=useState("")
   const [isUpdate,setIsUpdate] = useState(false)
 
 
 useEffect(()=>{
-const user1 = JSON.parse(sessionStorage.getItem("user"))
+const user = JSON.parse(sessionStorage.getItem("user"))
 
-setUserprofile({...userprofile,username:user1.username,email:user1.email,address:user1.address,location:user1.location,phone:user1.phone,user_type:user1.user_type})
+setUserprofile({...userprofile,username:user.username,email:user.email,address:user.address,location:user.location,phone:user.phone,user_type:user.user_type})
 
 },[isUpdate])
 
@@ -46,52 +53,25 @@ else{
   reqBody.append("phone",phone)
   reqBody.append("address",address)
   reqBody.append("location",location)
-
-const token = sessionStorage.getItem("token")
-if(preview){
-  const reqHeader = {
-    "Authorization" :`Token ${token}`
-   }
-   const result = await EdituserprofileAPI(reqBody,reqHeader)
-   console.log(result);
-   if(result.status === 200){
-    Swal.fire({
-      title: "Profile Update Successfully",
-      text: "Please fill in the form",
-      icon: "success",
-    });
-    sessionStorage.setItem("user",JSON.stringify(result.data))
-    setIsUpdate(true)
    
-   }
-   else{
-console.log(result.response.data.user);
-
-   }
-}
-else{
-  const reqHeader = {
-    "Content-Type": "application/json",
-    "Authorization": `Token ${token}`,
-  };
-  const result = await EdituserprofileAPI(reqBody,reqHeader)
-   console.log(result.data.user);
-   if(result.status ===200)
-   {
+ try {
+  const result = await axios.put(`http://127.0.0.1:8000//farmease/profile/${user.id}/`,reqBody,{
+    headers:{
+      Authorization:`Token ${token}`
+    }
+  })
+  if(result.status ===200 ){
+    console.log(result);
     Swal.fire({
       title: "Profile Update Successfully",
       text: "Please fill in the form",
       icon: "success",
-    });
-    sessionStorage.setItem("user",JSON.stringify(result.data))
-    setIsUpdate(true)
+    });    // sessionStorage.setItem('user',JSON.stringify(result.data))
 
-   }
-   else{
-console.log(result.response.data.user);
-
-   }
-}
+  }
+ } catch (error) {
+  console.log(error);
+ }
 
 }
 }
@@ -105,9 +85,7 @@ console.log(result.response.data.user);
       <div className="row">
         <div className="col-md-3 border-right">
           <div className="d-flex flex-column align-items-center text-center p-3 py-5 ms-5">
-            <img className="  rounded-circle ms-5 " width="190px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" alt="Profile" />
-            <span className="font-weight-bold"></span>
-            <span className="text-black-50">edogaru@mail.com.my</span>
+            <img className="  rounded-circle ms-5 " width="200px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" alt="Profile" />
           </div>
         </div>
         

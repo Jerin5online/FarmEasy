@@ -154,7 +154,7 @@ const Profile = ({ register }) => {
             <form class="form" action="#">
               <div class="input-box">
                 <label>User Name</label>
-                <input value={user.username} onChange={(e) => setUserData({ ...userData, username: e.target.value })} placeholder="Enter full name" type="text" />
+                <input value={userData.username} onChange={(e) => setUserData({ ...userData, username: e.target.value })} placeholder="Enter full name" type="text" />
               </div>
               <div class="column">
                 {registerform && <div class="input-box">
