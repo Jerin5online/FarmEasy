@@ -66,3 +66,10 @@ export const productsAPI = async(reqHeader)=>{
  export const adduserAPI = async(reqHeader)=>{
     return await commonAPI("GET",`${BASE_URL}/farmease/users/`,"", reqHeader); 
    }
+
+   //Edit userprofile
+   export const EdituserprofileAPI = async(userId,reqBody,reqHeader)=>{
+    return  await commonAPI('PUT',`${BASE_URL}/farmease/profile/${userId}/`,reqBody,reqHeader)
+ } 
+   
+

@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Profile.css";
-import React, { useContext, useState } from 'react';
+import React, {useState } from 'react';
 import { loginAPI, registrationAPI } from "../../Services/AllAPI";
 import Swal from "sweetalert2";
 
@@ -103,7 +103,10 @@ const Profile = ({ register }) => {
             title: "Admin Succesfully Login !",
             icon: "success",
           });
+
+
           sessionStorage.setItem("token", result.data.token)
+          sessionStorage.setItem('user',result.data.user.id)
 
           setTimeout(() => {
             navigate('/adminhome')
@@ -117,6 +120,7 @@ const Profile = ({ register }) => {
               icon: "success",
             });
             sessionStorage.setItem("token", result.data.token)
+            sessionStorage.setItem('user',JSON.stringify(result.data.user))
 
             setUserData({
               username: "",
@@ -137,45 +141,9 @@ const Profile = ({ register }) => {
     }
   };
 
-
-
-
-
-  // document.addEventListener('DOMContentLoaded', () => {
-  //   const signupButton = document.getElementById('signup-button'),
-  //     loginButton = document.getElementById('login-button'),
-  //     userForms = document.getElementById('user_options-forms')
-
-  //   signupButton.addEventListener('click', () => {
-  //     userForms.classList.remove('bounceRight')
-  //     userForms.classList.add('bounceLeft')
-  //   }, false)
-
-  //   loginButton.addEventListener('click', () => {
-  //     userForms.classList.remove('bounceLeft')
-  //     userForms.classList.add('bounceRight')
-  //   }, false)
-  // })
   return (
     <>
-
-      {/* // User is not logged in
-          // <div>
-          //   <h2>Login</h2>
-          //   <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-          //   <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          //   <button onClick={handleLogin}>Login</button>
-
-          //   <h2>Register</h2>
-          //   <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-          //   <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-          //   <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          //   <button onClick={handleRegistration}>Register</button>
-          // </div>
-
-          // REGISTER */}
-
-      <div className="bgreg d-flex align-items-center justify-content-center">
+<div className="bgreg d-flex align-items-center justify-content-center">
         <div>
           <section class="container p-4 bg-secondary">
             {registerform ?
@@ -186,7 +154,7 @@ const Profile = ({ register }) => {
             <form class="form" action="#">
               <div class="input-box">
                 <label>User Name</label>
-                <input value={userData.username} onChange={(e) => setUserData({ ...userData, username: e.target.value })} placeholder="Enter full name" type="text" />
+                <input value={user.username} onChange={(e) => setUserData({ ...userData, username: e.target.value })} placeholder="Enter full name" type="text" />
               </div>
               <div class="column">
                 {registerform && <div class="input-box">
@@ -213,7 +181,7 @@ const Profile = ({ register }) => {
                         checked={userData.user_type === "User"}
                         onChange={(e) => setUserData({ ...userData, user_type: e.target.value })}
                       />
-                      <label htmlFor="check-user">User</label>
+                      <label htmlFor="check-user">User</label> 
                     </div>
                     <div className="gender">
                       <input

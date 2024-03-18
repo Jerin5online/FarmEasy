@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 function Adminheader() {
   return (
     <div>
-      <div className='adminheader mt-3 Card shadow mb-3 d-flex align-items-center  flex-column'>
+      <div className='adminheader mt-2 Card shadow mb-3 d-flex align-items-center  flex-column'>
          <div className='mt-5 text-light'>
           
             <Link className='link' to={'/addnews'}><h5 className='mb-3'><i className="fa-solid fa-newspaper"></i> Add News</h5></Link>

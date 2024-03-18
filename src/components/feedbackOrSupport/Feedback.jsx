@@ -22,7 +22,7 @@ const Feedback = () => {
     <>
     <MyHeader/>
     <form>
-        <div clasNames="container">
+        <div clasNames="container d-flex align-items-center justify-content-center">
             <div className="mx-auto text-center mb-5" style={{maxWidth:"500px"}}>
                 <h1 clasNames="display-5">Please Feel Free To Contact Us</h1>
             </div>
@@ -45,32 +45,7 @@ const Feedback = () => {
                         </form>
                     </div>
                 </div>
-                <div className="col-lg-5">
-                    <div className="bg-secondary h-100 p-5">
-                        <h2 className="text-white mb-4">Get In Touch</h2>
-                        <div className="d-flex mb-4">
-                           
-                        </div>
-                        <div className="d-flex mb-4">
-                            <div className="bg-primary rounded-circle d-flex align-items-center justify-content-center" style={{height:"60px",width:"60px"}}>
-                                <i className="fa-solid fa-envelope fs-4 text-light"></i>                            </div>
-                            <div className="ps-3">
-                                <h5 className="text-white">Email Us</h5>
-                                <span className="text-white">info@example.com</span>
-                            </div>
-                        </div>
-                        <div className="d-flex">
-                            <div className="bg-primary rounded-circle d-flex align-items-center justify-content-center" style={{height:"60px",width:"60px"}}>
-                            <i className="fa-solid fa-phone fs-4 text-light"></i>
-                            </div>
-                            <div className="ps-3">
-                                <h5 className="text-white">Call Us</h5>
-                                <span className="text-white">+012 345 6789</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+             </div>
         </div>
     </form>
    <Footer/>
