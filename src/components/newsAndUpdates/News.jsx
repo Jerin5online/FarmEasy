@@ -51,8 +51,9 @@ const News = () => {
        <Card.Title><span className="aboutfont">Content :</span>{item.content}</Card.Title>
        <Card.Title><span className="aboutfont">Date posted :</span>{item.date_posted}</Card.Title>
        
-
-
+       <i class="fa-solid fa-trash fa-1.5x" style={{display:"flex",justifyContent:"end"}}></i>
+       <i class="fa-solid fa-user-pen" style={{justifyContent:"end"}}></i>
+      
      </Card.Body>
    </Card>
    </div>)):<div>

@@ -62,7 +62,9 @@ const About = () => {
            <Card.Title><span className="aboutfont">Growth Period :</span> {item.growth_period} </Card.Title>
            <Card.Title><span className="aboutfont">Harvestinng Time :</span>{item.harvesting_time} </Card.Title>
            <Card.Title><span className="aboutfont">Techniques :</span> {item.techniques} </Card.Title>
-
+            
+           <i class="fa-solid fa-trash fa-1.5x" style={{display:"flex",justifyContent:"end"}}></i>
+       <i class="fa-solid fa-user-pen" style={{justifyContent:"end"}}></i>
 
          </Card.Body>
        </Card>

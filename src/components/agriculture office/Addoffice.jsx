@@ -22,8 +22,6 @@ function Addoffice() {
    }
  }, []);
  
-
-
  console.log(addAgriOffice);
   
  const handleAdd2 = async (e)=>{
@@ -59,7 +57,7 @@ function Addoffice() {
         Swal.fire({
           title: "",
           icon: "success",
-          text: "News successfully added"
+          text: "Office successfully added"
         });
         // Update the news list after successfully adding the news
         // Clear the form fields after successful addition
@@ -71,12 +69,7 @@ function Addoffice() {
   }
  
   
-
-  
-  
  }
-
-
   return (
     <>
        <div id='cropbg' className='d-flex align-items-center justify-content-center'>
