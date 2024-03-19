@@ -7,8 +7,12 @@ import { productsAPI } from '../../Services/AllAPI';
 import { BASE_URL } from '../../Services/BaseURL';
 import { Link } from 'react-router-dom';
 import Addproduct from '../Addproducts/Addproduct';
+import Footer from '../footer/Footer';
+import { Button } from 'react-bootstrap';
+import { addProductResponseContext } from '../../contexts/ContextShare';
 
 function Farmerproduct() {
+  // const {addProductResponse,setAddProductResponse}= useContext(addProductResponseContext)
   const [products, setProducts] = useState([]);
 
   const [isToken, setIsToken] = useState(false)
@@ -61,7 +65,7 @@ function Farmerproduct() {
                   <ListGroup.Item>PRICE: <button className='price'>₹ {item.data.price}</button></ListGroup.Item>
                 </ListGroup>
                 <Card.Body>
-                  <Link to={'/orderpage'} className='text-decoration-none'>BUY NOW</Link>
+                  <button to={'/orderpage'} className='text-decoration-none p-2 btn text-info'>ADD TO CART</button>
                 </Card.Body>
               </Card>
             </div>
@@ -73,6 +77,7 @@ function Farmerproduct() {
             </div>
         }
       </div>
+      <Footer/>
     </>
   );
 }

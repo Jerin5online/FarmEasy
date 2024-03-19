@@ -52,18 +52,18 @@ const News = () => {
       <h2 className="mb-5" style={{textAlign:"center",fontFamily:"serif",marginTop:"20px"}}>News and updates</h2>
 
   {newsData?.length>0?
-  newsData.map((item)=>( <div className="row" style={{alignItems: "center",justifyContent: "center",}}>
+  newsData.++++++++++++++++++++++++++++++++++++++++++++++map((item)=>( <div className="row" style={{alignItems: "center",justifyContent: "center",}}>
   <Card style={{ width: '75%', }}>
      <Card.Body>
        <Card.Title><span className="aboutfont">Title :</span> {item.title}  </Card.Title>
        <Card.Title><span className="aboutfont">Content :</span>{item.content}</Card.Title>
        <Card.Title><span className="aboutfont">Date posted :</span>{item.date_posted}</Card.Title>
-      { adminToken &&
-      <>
-         <i class="fa-solid fa-trash fa-1.5x" style={{display:"flex",justifyContent:"end"}}></i>
-         <i class="fa-solid fa-user-pen" style={{justifyContent:"end"}}></i>
-      </>
-      }
+       
+       <div className='mt-3'>
+          <i class="fa-solid fa-trash text-danger"></i>
+       <i class="fa-solid fa-user-pen ms-3 text-success" style={{justifyContent:"end"}}></i>
+          </div>
+      
      </Card.Body>
    </Card>
    </div>)):<div>

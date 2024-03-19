@@ -23,6 +23,9 @@ const MyHeader = () => {
       setIsLogin(true)
     }
   }, [])
+
+  
+
   return (
     <>
       <div>
@@ -40,6 +43,8 @@ const MyHeader = () => {
                 <Link className='fs-6  text-warning' to={'/news'}>NEWS</Link>
                 <Link className='fs-6  text-warning' to={'/feedback'}>FEEDBACK</Link>
                 <Link className='fs-6  text-warning' to={'/products'}>PRODUCTS</Link>
+                <Link className='fs-6  text-warning' to={'/imagehealth'}>HEALTH ASSESMENT</Link>
+
 
 
 
@@ -53,6 +58,7 @@ const MyHeader = () => {
                     <Link to={'/login'} onClick={handleLogout} className='fs-6 text-warning'>
                       LOGOUT
                     </Link>
+
                   </>
                 ) : (
                   <Link className='fs-6 text-warning' to={'/login'}>

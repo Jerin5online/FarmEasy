@@ -49,7 +49,7 @@ export const productsAPI = async(reqHeader)=>{
 
   //add crop
   export const addcropAPI = async(reqBody,reqHeader)=>{
-    return await commonAPI("POST", `${BASE_URL}/farmease/crops/`,reqBody, reqHeader); 
+    return await commonAPI("GET", `${BASE_URL}/farmease/usercrops/`,reqBody, reqHeader); 
    }
    //admin get
   //  export const getAdminInfoAPI = async(reqHeader)=>{
@@ -70,6 +70,13 @@ export const productsAPI = async(reqHeader)=>{
    //Edit userprofile
    export const EdituserprofileAPI = async(userId,reqBody,reqHeader)=>{
     return  await commonAPI('PUT',`${BASE_URL}/farmease/profile/${userId}/`,reqBody,reqHeader)
+ } 
+
+ // add product
+export const addProductAPI = async (reqBody , reqHeader)=>{
+  return await commonAPI('POST',`${BASE_URL}/farmease/farmer-products/`, reqBody , reqHeader)
+}
+   
  } 
 
  export const AddfeedbackAPI = async(userId,reqBody,reqHeader)=>{
