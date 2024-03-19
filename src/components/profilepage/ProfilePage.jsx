@@ -9,7 +9,7 @@ import axios from 'axios'
 // 
 const userString = sessionStorage.getItem("user")
 const user = JSON.parse(userString)
-console.log(user.id);
+console.log(user);
 const token = sessionStorage.getItem('token')
 
 

@@ -1,23 +1,55 @@
+import { AddfeedbackAPI } from "../../Services/AllAPI";
 import Footer from "../footer/Footer";
 import MyHeader from "../myHeader/MyHeader";
 import "./Feedback.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Feedback = () => {
   // State variables to store form data
-  const [feedback, setFeedback] = useState("");
-  const [email, setEmail] = useState("");
 
-  // Function to handle form submission
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Implement logic to handle form submission (e.g., send feedback to backend)
-    console.log("Feedback:", feedback);
-    console.log("Email:", email);
-    // Reset form fields after submission
-    setFeedback("");
-    setEmail("");
-  };
+  const [ addFeedback, setAddFeedback] = useState({
+    user:"",
+    order:"",
+    crop_names:"",
+    content:""
+  });
+  const [token, setToken] = useState("");
+
+ useEffect(() => {
+   if (sessionStorage.getItem("token")) {
+     setToken(sessionStorage.getItem("token"));
+   } else {
+     setToken("");
+   }
+ }, []);
+
+  console.log(addFeedback);
+
+  const handlesubmit = async(e) =>{
+    e.preventDefault()
+
+    const {user,order,crop_names,content} = addFeedback
+    if(!user || !order || !crop_names || !content){
+      alert("please fill the form")
+    }
+    else{
+      const reqBody = {
+        user:user,
+        order:order,
+        crop_names:crop_names,
+        content:content 
+      }
+      if(token){
+        const reqHeader = {
+          "Content-Type": "application/json",
+          "Authorization": `Token ${token}`
+        }
+         const result = AddfeedbackAPI(reqBody,reqHeader)
+      }
+    }
+   
+  }
+ 
   return (
     <>
     <MyHeader/>
@@ -29,25 +61,52 @@ const Feedback = () => {
       <div className="row g-0">
         <div className="col-lg-7">
           <div className="bg-primary h-100 p-5 me-5 rounded"  style={{width:"600px"}}>
-            <form onSubmit={handleSubmit}>
+            <form >
               <div className="row g-3" >
                 <div className="col-12">
                   <input
-                    type="email"
-                    id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    type="text"
+                    id="text"
+                    value={addFeedback.user}
+                    onChange={(e)=>setAddFeedback({...addFeedback,user:e.target.value})}
                     required
                     className="form-control bg-light border-0 px-4"
-                    placeholder="Your Email"
+                    placeholder="Your username"
                     style={{ height: "55px" }}
                   />
+                  
+                </div>
+                <div className="col-12">
+                  <input
+                    type="text"
+                    id="text"
+                    value={addFeedback.order}
+                    onChange={(e)=>setAddFeedback({...addFeedback,order:e.target.value})}
+                    required
+                    className="form-control bg-light border-0 px-4"
+                    placeholder="Your order id"
+                    style={{ height: "55px" }}
+                  />
+                  
+                </div>
+                <div className="col-12">
+                  <input
+                    type="text"
+                    id="text"
+                    value={addFeedback.crop_names}
+                    onChange={(e)=>setAddFeedback({...addFeedback,crop_names:e.target.value})}
+                    required
+                    className="form-control bg-light border-0 px-4"
+                    placeholder="crop name"
+                    style={{ height: "55px" }}
+                  />
+                  
                 </div>
                 <div className="col-12">
                   <textarea
                     id="feedback"
-                    value={feedback}
-                    onChange={(e) => setFeedback(e.target.value)}
+                    value={addFeedback.content}
+                    onChange={(e)=>setAddFeedback({...addFeedback,content:e.target.value})}
                     required
                     className="form-control bg-light border-0 px-4 py-3"
                     rows="2"
@@ -55,7 +114,7 @@ const Feedback = () => {
                   ></textarea>
                 </div>
                 <div className="col-12">
-                  <button className="btn btn-secondary w-100 py-3" type="submit">
+                  <button onClick={handlesubmit} className="btn btn-secondary w-100 py-3" type="submit">
                     Send Feedback
                   </button>
                 </div>

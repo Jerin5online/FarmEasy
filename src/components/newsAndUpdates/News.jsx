@@ -14,6 +14,10 @@ const News = () => {
 
 
   const {addNewsResponse , setAddNewsResponse} = useContext(addNewsResponseContext)
+   
+  const adminToken = `0e161128c29aefec6b39ea8e98bb2e202924c9e4`
+
+
 
   const getnews = async()=>{
     if (sessionStorage.getItem("token")) {
@@ -38,23 +42,28 @@ const News = () => {
       setIstoken(true)
     }
   },[])
+
+
+
   return (
     <>
     <MyHeader/>
 <div>
-      <h2 className="mb-5 text-danger" style={{textAlign:"center",fontFamily:"serif"}}>NEWS AND UPDATES</h2>
+      <h2 className="mb-5" style={{textAlign:"center",fontFamily:"serif",marginTop:"20px"}}>News and updates</h2>
 
   {newsData?.length>0?
-  newsData.map((item)=>( <div className="row">
-  <Card style={{ width: '97%', }}>
+  newsData.map((item)=>( <div className="row" style={{alignItems: "center",justifyContent: "center",}}>
+  <Card style={{ width: '75%', }}>
      <Card.Body>
        <Card.Title><span className="aboutfont">Title :</span> {item.title}  </Card.Title>
        <Card.Title><span className="aboutfont">Content :</span>{item.content}</Card.Title>
        <Card.Title><span className="aboutfont">Date posted :</span>{item.date_posted}</Card.Title>
-       
-       <i class="fa-solid fa-trash fa-1.5x" style={{display:"flex",justifyContent:"end"}}></i>
-       <i class="fa-solid fa-user-pen" style={{justifyContent:"end"}}></i>
-      
+      { adminToken &&
+      <>
+         <i class="fa-solid fa-trash fa-1.5x" style={{display:"flex",justifyContent:"end"}}></i>
+         <i class="fa-solid fa-user-pen" style={{justifyContent:"end"}}></i>
+      </>
+      }
      </Card.Body>
    </Card>
    </div>)):<div>
