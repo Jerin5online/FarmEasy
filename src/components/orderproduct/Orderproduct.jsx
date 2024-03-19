@@ -18,12 +18,9 @@ function Orderproduct() {
     <MDBContainer
       className="py-5"
       fluid
-      style={{
-        backgroundImage:
-          "url(https://mdbcdn.b-cdn.net/img/Photos/Others/background3.webp)",
-      }}
+      style={{backgroundImage:"url(https://mdbcdn.b-cdn.net/img/Photos/Others/background3.webp)",height:"817px"}}
     >
-      <MDBRow className=" d-flex justify-content-center">
+      <MDBRow className=" d-flex justify-content-center mt-5">
         <MDBCol md="10" lg="8" xl="5">
           <MDBCard className="rounded-3">
             <MDBCardBody className="p-4">
