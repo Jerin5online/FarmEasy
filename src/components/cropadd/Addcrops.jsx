@@ -145,7 +145,7 @@ const Addcrops = () => {
     climate: "",
     growth_period: "",
     harvesting_time: "",
-    techniques: [] // Initialize techniques as an empty array
+    techniques: [""] // Initialize techniques as an empty array
   });
 
   console.log(addcrop);
