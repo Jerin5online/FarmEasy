@@ -11,9 +11,8 @@ function Adminheader() {
             <Link className='link' to={'/addnews'}><h5 className='mb-3'><i className="fa-solid fa-newspaper"></i> Add News</h5></Link>
             <Link className='link' to={'/addcrop'}><h5 className='mb-3'><i className="fa-solid fa-tree"></i> Add Crops</h5></Link>
             <Link className='link' to={'/addoffice'}><h5 className='mb-3'><i className="fa-solid fa-arrow-right-from-bracket me-2"></i>Add office </h5></Link>
-
             <Link className='link' to={'/disease'}><h5 className='mb-3'><i className="fa-solid fa-arrow-right-from-bracket me-2"></i>Disease Solutions </h5></Link>
-            <Link className='link' to={'/disease'}><h5 className='mb-3'><i className="fa-solid fa-arrow-right-from-bracket me-2"></i>Add agricultur office </h5></Link>
+            <Link className='link' to={'/disease'}><h5 className='mb-3'><i className="fa-solid fa-arrow-right-from-bracket me-2"></i>Add agriculture office </h5></Link>
 
             
 

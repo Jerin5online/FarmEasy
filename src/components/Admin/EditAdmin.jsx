@@ -18,9 +18,7 @@ const EditAdmin = () => {
             
   return (
     <>
-       <Button variant="primary" onClick={handleShow}>
-        EDIT
-      </Button>
+       
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

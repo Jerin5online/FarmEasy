@@ -131,6 +131,7 @@
 
 
 
+
 import React, { useEffect, useState } from 'react';
 import "./Addcrops.css";
 import { Link } from 'react-router-dom';
@@ -145,7 +146,7 @@ const Addcrops = () => {
     climate: "",
     growth_period: "",
     harvesting_time: "",
-    techniques: [] // Initialize techniques as an empty array
+    techniques: ["", ""] // Initialize techniques with two empty strings
   });
 
   console.log(addcrop);
@@ -162,7 +163,7 @@ const Addcrops = () => {
 
     const { name, description, climate, growth_period, harvesting_time, techniques } = addcrop;
 
-    if (!name || !description || !climate || !growth_period || !harvesting_time || techniques.length === 0) {
+    if (!name || !description || !climate || !growth_period || !harvesting_time || techniques.some(tech => tech === "")) {
       Swal.fire({
         title: "🚫",
         icon: "info",
@@ -175,7 +176,7 @@ const Addcrops = () => {
         climate,
         growth_period,
         harvesting_time,
-        techniques: JSON.stringify(techniques) // Convert techniques array to string
+        techniques: techniques.filter(tech => tech !== "") // Remove empty strings from techniques array
       };
 
       if (token) {
@@ -197,7 +198,7 @@ const Addcrops = () => {
               climate: "",
               growth_period: "",
               harvesting_time: "",
-              techniques: []
+              techniques: ["", ""]
             });
           } else {
             console.log(result.response.data);
@@ -219,7 +220,7 @@ const Addcrops = () => {
             <div className="text-header">ADD CROPS</div>
           </div>
           <div className="card-body">
-            <form onSubmit={handleAddCrop}>
+            <form >
               <div className="form-group">
                 <label htmlFor="username">Name</label>
                 <input value={addcrop.name} onChange={(e) => setAddCrop({ ...addcrop, name: e.target.value })} required className="form-control" name="username" id="username" type="text" />
@@ -242,11 +243,19 @@ const Addcrops = () => {
               </div>
               <div className="form-group">
                 <label htmlFor="technique1">Technique 1</label>
-                <input value={addcrop.techniques[0]} onChange={(e) => setAddCrop({ ...addcrop, techniques: [e.target.value, addcrop.techniques[1]] })} required className="form-control" name="technique1" id="technique1" type="text" />
+                <input value={addcrop.techniques[0]} onChange={(e) => {
+                  const newTechniques = [...addcrop.techniques];
+                  newTechniques[0] = e.target.value;
+                  setAddCrop({ ...addcrop, techniques: newTechniques});
+                }} required className="form-control" name="technique1" id="technique1" type="text" />
               </div>
               <div className="form-group">
                 <label htmlFor="technique2">Technique 2</label>
-                <input value={addcrop.techniques[1]} onChange={(e) => setAddCrop({ ...addcrop, techniques: [addcrop.techniques[0], e.target.value] })} required className="form-control" name="technique2" id="technique2" type="text" />
+                <input value={addcrop.techniques[1]} onChange={(e) => {
+                  const newTechniques = [...addcrop.techniques];
+                  newTechniques[1] = e.target.value;
+                  setAddCrop({ ...addcrop, techniques: newTechniques });
+                }} required className="form-control" name="technique2" id="technique2" type="text" />
               </div>
               <input onClick={handleAddCrop} type="submit" className="btn1" value="Submit" />
             </form>
@@ -259,3 +268,4 @@ const Addcrops = () => {
 };
 
 export default Addcrops;
+
