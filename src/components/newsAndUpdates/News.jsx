@@ -6,6 +6,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { newsAPI } from "../../Services/AllAPI";
 import { Link } from "react-router-dom";
 import { addNewsResponseContext } from "../../contexts/ContextShare";
+import EditNews from "../EditNews/EditNews";
 
 
 const News = () => {
@@ -60,7 +61,7 @@ const News = () => {
        <Card.Title><span className="aboutfont">Date posted :</span>{item.date_posted}</Card.Title>
        
        <div className='mt-3'>
-          <i class="fa-solid fa-trash text-danger"></i>
+        <EditNews news={item}/>
        <i class="fa-solid fa-user-pen ms-3 text-success" style={{justifyContent:"end"}}></i>
           </div>
       

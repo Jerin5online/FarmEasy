@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2';
 import { addAgriofficeAPI } from '../../Services/AllAPI';
+import Office from '../agricultureOfficesLocator/Office';
+
 
 function Addoffice() {
 
@@ -103,7 +105,9 @@ function Addoffice() {
             </form>
           </div>
         </div>
+
       </div>
+      <Office/>
     </>
   )
 }
