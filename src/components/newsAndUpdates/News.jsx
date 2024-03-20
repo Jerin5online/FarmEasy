@@ -1,81 +1,84 @@
-import { Card } from "react-bootstrap";
-import Footer from "../footer/Footer";
-import MyHeader from "../myHeader/MyHeader";
-import "./News.css";
 import React, { useState, useEffect, useContext } from 'react';
-import { newsAPI } from "../../Services/AllAPI";
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { addNewsResponseContext } from "../../contexts/ContextShare";
+import { newsAPI } from "../../Services/AllAPI";
 import EditNews from "../EditNews/EditNews";
-
+import MyHeader from "../myHeader/MyHeader";
+import Footer from "../footer/Footer";
+import { addNewsResponseContext } from "../../contexts/ContextShare";
 
 const News = () => {
   const [newsData, setNewsData] = useState([]);
-  const [istoken,setIstoken] = useState(false)
+  const [isToken, setIsToken] = useState(false);
+  const { addNewsResponse } = useContext(addNewsResponseContext);
 
-
-  const {addNewsResponse , setAddNewsResponse} = useContext(addNewsResponseContext)
-   
-  const adminToken = `0e161128c29aefec6b39ea8e98bb2e202924c9e4`
-
-
-
-  const getnews = async()=>{
-    if (sessionStorage.getItem("token")) {
-      const token = sessionStorage.getItem("token")
-      const reqHeader = {
-
-        "Content-Type": "application/json",
-        "Authorization": `Token ${token}`
-
-      }
-      const result = await newsAPI(reqHeader)
-      console.log(result);
-      setNewsData(result.data)
-    }
-  }
   useEffect(() => {
-    getnews()
-  }, [addNewsResponse])
+    const getNews = async () => {
+      if (sessionStorage.getItem("token")) {
+        const token = sessionStorage.getItem("token");
+        const reqHeader = {
+          "Content-Type": "application/json",
+          "Authorization": `Token ${token}`
+        };
+        const result = await newsAPI(reqHeader);
+        setNewsData(result.data);
+      }
+    };
 
-  useEffect(()=>{
+    getNews();
+  }, [addNewsResponse]);
+
+  useEffect(() => {
     if (sessionStorage.getItem("token")) {
-      setIstoken(true)
+      setIsToken(true);
     }
-  },[])
-
-
+  }, []);
 
   return (
     <>
-    <MyHeader/>
-<div>
-      <h2 className="mb-5" style={{textAlign:"center",fontFamily:"serif",marginTop:"20px"}}>News and updates</h2>
+      {sessionStorage.getItem("admin") !== "6" && <MyHeader />}
+      <div>
+        <h2 className="mb-5" style={{ textAlign: "center", fontFamily: "serif", marginTop: "20px" }}>News and updates</h2>
 
-  {newsData?.length>0?
-  newsData.map((item)=>( <div className="row" style={{alignItems: "center",justifyContent: "center",}}>
-  <Card style={{ width: '75%', }}>
-     <Card.Body>
-       <Card.Title><span className="aboutfont">Title :</span> {item.title}  </Card.Title>
-       <Card.Title><span className="aboutfont">Content :</span>{item.content}</Card.Title>
-       <Card.Title><span className="aboutfont">Date posted :</span>{item.date_posted}</Card.Title>
-       
-       <div className='mt-3'>
-        <EditNews news={item}/>
-       <i class="fa-solid fa-user-pen ms-3 text-success" style={{justifyContent:"end"}}></i>
-          </div>
-      
-     </Card.Body>
-   </Card>
-   </div>)):<div>
-             {istoken?<p style={{marginBottom:"500px" ,fontSize:"50px"}} className=' text-danger  text-center'>sorry! no such Crops currently available</p> : <div className='d-flex justify-content-center align-items-center flex-column mb-5'>
+        {newsData?.length > 0 ?
+          newsData.map((item) => (
+            <div className="row" style={{ alignItems: "center", justifyContent: "center" }}>
+              <Card style={{ width: '75%' }}>
+                <Card.Body>
+                  <Card.Title><span className="aboutfont">Title:</span> {item.title}</Card.Title>
+                  <Card.Title><span className="aboutfont">Content:</span> {item.content}</Card.Title>
+                  <Card.Title><span className="aboutfont">Date posted:</span> {item.date_posted}</Card.Title>
+                  {sessionStorage.getItem("user") && (
+    <div className='mt-3' style={{ display: 'none' }}>
+      <EditNews news={item} />
+      <i className="fa-solid fa-user-pen ms-3 text-success" style={{ justifyContent: "end" }}></i>
+    </div>
+  )}
+  
+  {sessionStorage.getItem("admin") && (
+    <div className='mt-3'>
+      <EditNews news={item} />
+      <i className="fa-solid fa-user-pen ms-3 text-success" style={{ justifyContent: "end" }}></i>
+    </div>
+  )}
+                </Card.Body>
+              </Card>
+            </div>
+          )) :
+          <div>
+            {isToken ?
+              <p style={{ marginBottom: "500px", fontSize: "50px" }} className=' text-danger text-center'>Sorry! No such news currently available</p> :
+              <div className='d-flex justify-content-center align-items-center flex-column mb-5'>
                 <img src="https://cdn-icons-png.flaticon.com/512/6360/6360303.png" alt="login gif" height={'300px'} width={'300px'} />
-                <p className='mt-5' style={{textDecoration:"ActiveBorder"}}>PLEASE<Link style={{textDecoration:"none", color:"purple"}} to={'/login'}> LOGIN</Link></p></div>}
-            </div>}
-     </div>
-    <Footer/>
+                <p className='mt-5' style={{ textDecoration: "ActiveBorder" }}>PLEASE<Link style={{ textDecoration: "none", color: "purple" }} to={'/login'}> LOGIN</Link></p>
+              </div>
+            }
+          </div>
+        }
+      </div>
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default News
+export default News;

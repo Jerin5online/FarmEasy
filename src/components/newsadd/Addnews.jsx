@@ -158,9 +158,9 @@ const Addnews = () => {
 
   const handleAdd = async (e) => {
     e.preventDefault();
-
+  
     const { title, content } = addnews;
-
+  
     if (!title || !content) {
       Swal.fire({
         title: "🚫",
@@ -171,16 +171,16 @@ const Addnews = () => {
       const reqBody = new FormData();
       reqBody.append("title", title);
       reqBody.append("content", content);
-
+  
       if (token) {
         const reqHeader = {
           "Content-Type": "multipart/form-data",
           "Authorization": `Token ${token}`
         };
-
+  
         const result = await addnewsAPI(reqBody, reqHeader);
         console.log(result);
-
+  
         if (result.status === 201) {
           console.log(result);
           Swal.fire({
@@ -188,17 +188,25 @@ const Addnews = () => {
             icon: "success",
             text: "News successfully added"
           });
+          setTimeout(() => {
+            window.location.reload();
+          }, 100);
+  
           // Update the news list after successfully adding the news
           setNewsList([...newsList, result.data]);
           // Clear the form fields after successful addition
           setAddnews({ title: "", content: "" });
-          setAddNewsResponse(result.data)
+          setAddNewsResponse(result.data);
+  
+        
+          
         } else {
           console.log(result.response.data);
         }
       }
     }
   };
+  
 
   return (
     <>

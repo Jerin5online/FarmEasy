@@ -387,7 +387,7 @@ const Profile = ({ register }) => {
 
 
           sessionStorage.setItem("token", result.data.token)
-          sessionStorage.setItem('user',result.data.user.id)
+          sessionStorage.setItem('admin',result.data.user.id)
 
           setTimeout(() => {
             navigate('/adminhome')

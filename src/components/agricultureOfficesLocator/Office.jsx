@@ -37,7 +37,7 @@ const Office = () => {
   return (
     <>
       <div>
-        <MyHeader />
+      {sessionStorage.getItem("admin") ? null : <MyHeader />}
         <h2 style={{ fontFamily: "serif", textAlign: "center" }}>Agriculture Offices Locator</h2>
 
 
