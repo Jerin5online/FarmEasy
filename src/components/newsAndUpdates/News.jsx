@@ -52,7 +52,7 @@ const News = () => {
       <h2 className="mb-5" style={{textAlign:"center",fontFamily:"serif",marginTop:"20px"}}>News and updates</h2>
 
   {newsData?.length>0?
-  newsData.++++++++++++++++++++++++++++++++++++++++++++++map((item)=>( <div className="row" style={{alignItems: "center",justifyContent: "center",}}>
+  newsData.map((item)=>( <div className="row" style={{alignItems: "center",justifyContent: "center",}}>
   <Card style={{ width: '75%', }}>
      <Card.Body>
        <Card.Title><span className="aboutfont">Title :</span> {item.title}  </Card.Title>
