@@ -95,3 +95,5 @@ export const deleteofficeAPI = async (projectId,reqHeader)=>{
   // project id passed as path parameter
   return await commonAPI('DELETE',`${BASE_URL}/farmease/agridelete/${projectId}`,{}, reqHeader)
 }
+
+aaa
