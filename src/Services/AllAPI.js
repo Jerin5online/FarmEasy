@@ -84,16 +84,4 @@ export const addProductAPI = async (reqBody , reqHeader)=>{
 } 
    
 
-//edit office 
-export const editofficeAPI = async (projectId,reqBody,reqHeader)=>{
-  // project id passed as path parameter
-  return await commonAPI('PUT',`${BASE_URL}/farmease/agriofficeupdate/${projectId}`,reqBody, reqHeader)
-}
 
-// delete project 
-export const deleteofficeAPI = async (projectId,reqHeader)=>{
-  // project id passed as path parameter
-  return await commonAPI('DELETE',`${BASE_URL}/farmease/agridelete/${projectId}`,{}, reqHeader)
-}
-
-aaa
