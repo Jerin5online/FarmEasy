@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { newsAPI } from "../../Services/AllAPI";
+import { DeleteNewsAPI, newsAPI } from "../../Services/AllAPI";
 import EditNews from "../EditNews/EditNews";
 import MyHeader from "../myHeader/MyHeader";
 import Footer from "../footer/Footer";
 import { addNewsResponseContext } from "../../contexts/ContextShare";
+import Swal from 'sweetalert2';
 
 const News = () => {
   const [newsData, setNewsData] = useState([]);
@@ -34,6 +35,31 @@ const News = () => {
     }
   }, []);
 
+  const handleNewsDelete = async(id)=>{
+    const token = sessionStorage.getItem("token");
+    const reqHeader = {
+      "Content-Type": "application/json",
+      "Authorization": `Token ${token}`,
+    };
+    const result =await DeleteNewsAPI(id,reqHeader)
+    console.log(result);
+    if (result.status===204) {
+      Swal.fire({
+        title: "News Deleted Successfully",
+        text: "Please fill in the form",
+        icon: "success",
+      });      setTimeout(() => {
+        window.location.reload();
+      }, 60);
+      getNews()
+      
+    }
+    else{
+      console.log(result.response.data);
+    }
+
+  }
+
   return (
     <>
       {sessionStorage.getItem("admin") !== "6" && <MyHeader />}
@@ -58,7 +84,9 @@ const News = () => {
   {sessionStorage.getItem("admin") && (
     <div className='mt-3'>
       <EditNews news={item} />
-      <i className="fa-solid fa-user-pen ms-3 text-success" style={{ justifyContent: "end" }}></i>
+      <Button onClick={()=>handleNewsDelete(item.id)} className='ms-2' variant="primary" >
+        <i class="fa-solid fa-trash text-danger" />
+      </Button>
     </div>
   )}
                 </Card.Body>

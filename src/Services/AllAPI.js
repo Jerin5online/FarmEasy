@@ -77,10 +77,31 @@ export const addProductAPI = async (reqBody , reqHeader)=>{
   return await commonAPI('POST',`${BASE_URL}/farmease/farmer-products/`, reqBody , reqHeader)
 }
    
- 
-
+ //Add feedback
  export const AddfeedbackAPI = async(userId,reqBody,reqHeader)=>{
   return  await commonAPI('PUT',`${BASE_URL}/farmease/profile/${userId}/`,reqBody,reqHeader)
 } 
-   
 
+//edit news
+
+export const EditNewsAPI = async(Id,reqBody,reqHeader)=>{
+  return  await commonAPI('PUT',`${BASE_URL}/farmease/newsupdate/${Id}/`,reqBody,reqHeader)
+} 
+
+//delete news
+
+export const DeleteNewsAPI = async(id,reqHeader)=>{
+  return  await commonAPI('DELETE',`${BASE_URL}/farmease/newsdelete/${id}/`,{},reqHeader)
+}
+
+//edit news
+
+export const EditCropAPI = async(Id,reqBody,reqHeader)=>{
+  return  await commonAPI('PUT',`${BASE_URL}/farmease/cropupdate/${Id}/`,reqBody,reqHeader)
+}  
+
+//delete news
+
+export const DeleteCropAPI = async(id,reqHeader)=>{
+  return  await commonAPI('DELETE',`${BASE_URL}/farmease/cropdelete/${id}/`,{},reqHeader)
+}
