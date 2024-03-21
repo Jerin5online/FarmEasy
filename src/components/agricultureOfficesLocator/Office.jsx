@@ -3,8 +3,9 @@ import Footer from "../footer/Footer";
 import MyHeader from "../myHeader/MyHeader";
 import "./Office.css";
 import { useEffect, useState } from "react";
-import { agriofficeAPI } from "../../Services/AllAPI";
+import { agriofficeAPI, deleteofficeAPI } from "../../Services/AllAPI";
 import { Link } from "react-router-dom";
+import Editoffice from "../Editoffice/Editoffice";
 
 const Office = () => {
 
@@ -33,6 +34,27 @@ const Office = () => {
       setIstoken(true)
     }
   },[])
+
+  const handleDelete = async (id)=>{
+    const token = sessionStorage.getItem("token")
+    const reqHeader ={
+      "Content-Type": "application/json",
+      "Authorization": `Token ${token}` 
+     }
+     const result = await deleteofficeAPI (id,reqHeader)
+     console.log(result);
+     if(result.status === 204){
+      // window.location.reload()
+
+      alert('deleted')
+      getAgriOffice()
+      
+     
+     }
+     else{
+      console.log(result.response.data);
+     }
+  }
   
   return (
     <>
@@ -51,12 +73,17 @@ const Office = () => {
                   <Card.Title><span className="aboutfont">Location :</span>{item.location}</Card.Title>
                   <Card.Title><span className="aboutfont">Contact Number :</span> {item.contact_number}</Card.Title>
                   <Card.Title><span className="aboutfont">Email Id :</span> {item.email} </Card.Title>
+                  {sessionStorage.getItem("user") ? null : (
+    <div className='mt-3'>
+    </div>
+  )}
 
-                  <div className='mt-3'>
-          <i class="fa-solid fa-trash text-danger"></i>
-       <i class="fa-solid fa-user-pen ms-3 text-success" style={{justifyContent:"end"}}></i>
-          </div>
-
+  {sessionStorage.getItem("admin") ? (
+    <div className='mt-3'>
+      <Editoffice office={item}/>
+      <i className="fa-solid fa-trash ms-3 text-success" onClick={()=>handleDelete(item.id)} ></i>
+    </div>
+  ) : null}
                 </Card.Body>
               </Card>
             </div>)) : <div>
