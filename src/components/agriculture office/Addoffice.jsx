@@ -61,6 +61,9 @@ function Addoffice() {
           icon: "success",
           text: "Office successfully added"
         });
+        setTimeout(() => {
+          window.location.reload();
+        }, 100);
         // Update the news list after successfully adding the news
         // Clear the form fields after successful addition
       } else {
@@ -108,7 +111,7 @@ function Addoffice() {
 
       </div>
       <Office/>
-    </>
+     </>
   )
 }
 

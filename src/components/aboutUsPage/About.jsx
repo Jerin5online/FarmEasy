@@ -69,7 +69,8 @@ const About = () => {
       <i className="fa-solid fa-user-pen ms-3 text-success" style={{ justifyContent: "end" }}></i>
     </div>
   ) : null}
-
+   
+  
                 </Card.Body>
               </Card>
             </div>)) : <div>
