@@ -95,15 +95,26 @@ export const DeleteNewsAPI = async(id,reqHeader)=>{
   return  await commonAPI('DELETE',`${BASE_URL}/farmease/newsdelete/${id}/`,{},reqHeader)
 }
 
-//edit news
+//edit crop
 
 export const EditCropAPI = async(Id,reqBody,reqHeader)=>{
   return  await commonAPI('PUT',`${BASE_URL}/farmease/cropupdate/${Id}/`,reqBody,reqHeader)
 }  
 
-//delete news
+//delete crop
 
 export const DeleteCropAPI = async(id,reqHeader)=>{
   return  await commonAPI('DELETE',`${BASE_URL}/farmease/cropdelete/${id}/`,{},reqHeader)
 }
 
+//edit office 
+export const editofficeAPI = async (projectId,reqBody,reqHeader)=>{
+  // project id passed as path parameter
+  return await commonAPI('PUT',`${BASE_URL}/farmease/agriofficeupdate/${projectId}`,reqBody, reqHeader)
+}
+
+// delete office 
+export const deleteofficeAPI = async (projectId,reqHeader)=>{
+  // project id passed as path parameter
+  return await commonAPI('DELETE',`${BASE_URL}/farmease/agridelete/${projectId}`,{}, reqHeader)
+}
