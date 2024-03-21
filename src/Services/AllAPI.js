@@ -107,4 +107,3 @@ export const DeleteCropAPI = async(id,reqHeader)=>{
   return  await commonAPI('DELETE',`${BASE_URL}/farmease/cropdelete/${id}/`,{},reqHeader)
 }
 
-aaa
