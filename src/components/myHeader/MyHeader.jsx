@@ -10,13 +10,14 @@ const MyHeader = () => {
   const [islogin, setIsLogin] = useState(false)
 
   const navigate = useNavigate()
-
   const handleLogout = () => {
-    sessionStorage.removeItem("token")
-    sessionStorage.removeItem("existingUser")
-    //navigate to homepage
-    navigate('/')
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("user");
+    sessionStorage.removeItem("farmer"); // Remove "farmer" item as well
+    // Navigate to homepage
+    navigate('/');
   }
+  
 
   useEffect(() => {
     if (sessionStorage.getItem("token")) {
