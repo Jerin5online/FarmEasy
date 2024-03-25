@@ -12,6 +12,8 @@ import {
   
 } from 'mdb-react-ui-kit';
 import EditAdmin from './EditAdmin';
+import { Table } from 'react-bootstrap';
+import { Collapse } from 'bootstrap';
 
 
 function Adminhome() {
@@ -72,6 +74,8 @@ function Adminhome() {
       </MDBContainer>
     </section>
  </div>
+
+
   
     
  
