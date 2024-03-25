@@ -118,3 +118,11 @@ export const deleteofficeAPI = async (projectId,reqHeader)=>{
   // project id passed as path parameter
   return await commonAPI('DELETE',`${BASE_URL}/farmease/agridelete/${projectId}`,{}, reqHeader)
 }
+
+export const addtoCartAPI = async (reqBody , reqHeader)=>{
+  return await commonAPI('POST',`${BASE_URL}/farmease/farmcart/`, reqBody , reqHeader)
+}
+
+export const getCartproducts = async (reqHeader)=>{
+  return await commonAPI('GET',`${BASE_URL}/farmease/farmcart/`,"",reqHeader)
+}

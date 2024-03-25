@@ -41,9 +41,9 @@ function Adminhome() {
 
 
  <section className='mt-5' >
-      <MDBContainer >
+      <MDBContainer>
         
-<h1 style={{fontFamily:"fantasy"}}>WELCOME ADMIN</h1>
+<h1 style={{fontFamily:"fantasy"}} >WELCOME ADMIN</h1>
         <MDBRow>
           <MDBCol lg="4">
             <MDBCard className="mb-4">

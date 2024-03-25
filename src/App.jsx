@@ -23,6 +23,7 @@ import ImageHealth from "./components/Healthassesment/ImageHealth";
 import EditNews from "./components/EditNews/EditNews";
 import Editoffice from "./components/Editoffice/Editoffice";
 import Editcrop from "./components/EditCrop/Editcrop";
+import Cart from "./components/Cart/Cart";
 // import LoginSignUp from "./components/loginSignUp/LoginSignUp";
 
 
@@ -55,6 +56,7 @@ function App() {
         <Route path="/editoffice" element={<EditNews/>}/>
         <Route path="/editnews" element={<Editoffice/>}/>
         <Route path="/editcrop" element={<Editcrop/>}/>
+        <Route path="/addtocart" element={<Cart/>}/>
         {/* <Route path="/loginsignup" element = {<LoginSignUp/>} /> */}
 
       </Routes>

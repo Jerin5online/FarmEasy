@@ -45,6 +45,7 @@ const MyHeader = () => {
                 <Link className='fs-6  text-warning' to={'/feedback'}>FEEDBACK</Link>
                 <Link className='fs-6  text-warning' to={'/products'}>PRODUCTS</Link>
                 <Link className='fs-6  text-warning' to={'/imagehealth'}>HEALTH ASSESMENT</Link>
+                <Link className='fs-6  text-warning' to={'/addtocart'}>CART</Link>
 
 
 
