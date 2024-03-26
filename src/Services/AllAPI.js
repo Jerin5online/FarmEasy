@@ -119,10 +119,26 @@ export const deleteofficeAPI = async (projectId,reqHeader)=>{
   return await commonAPI('DELETE',`${BASE_URL}/farmease/agridelete/${projectId}`,{}, reqHeader)
 }
 
-export const addtoCartAPI = async (reqBody , reqHeader)=>{
-  return await commonAPI('POST',`${BASE_URL}/farmease/farmcart/`, reqBody , reqHeader)
+//add cart
+
+export const addtoCartAPI = async (reqBody)=>{
+  return await commonAPI('POST',`${BASE_URL}/farmease/farmcart/`, reqBody ,"")
 }
 
+//add cart producta
 export const getCartproducts = async (reqHeader)=>{
   return await commonAPI('GET',`${BASE_URL}/farmease/farmcart/`,"",reqHeader)
+}
+
+
+//health assessment
+
+export const imagehealthAPI = async (reqBody) => {
+  return await commonAPI('POST',`${BASE_URL}/farmease/health-assessment/`,reqBody,{});
+}
+
+//get health assessment
+
+export const gethealthassessmentAPI = async () => {
+  return await commonAPI('GET',`${BASE_URL}/farmease/health-assessment/`,{});
 }

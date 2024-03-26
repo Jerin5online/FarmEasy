@@ -5,14 +5,6 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
 
-  //   <MDBFooter bgColor='light' className='text-center text-lg-left mt-auto'>
-  //   <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)', padding: '1rem', position: 'fixed', bottom: '0', width: '100%' }}>
-  //     &copy; {new Date().getFullYear()} Copyright:{' '}
-  //     <a className='text-dark' href='http://localhost:5173/'>
-  //       FARM-EASY-APP.COM
-  //     </a>
-  //   </div>
-  // </MDBFooter>
   <>
   <div className="container-fluid bg-dark text-white mt-auto px-sm-3 px-md-5">
             <div className="row pt-5">
@@ -57,7 +49,6 @@ const Footer = () => {
             </div>
         </div>
     
-  
   
   </>
   )

@@ -61,6 +61,7 @@ function Farmerproduct() {
       
       console.log(result.data);
     }
+    console.log(`${BASE_URL}${products[0].image}`)
   };
   return (
     <>

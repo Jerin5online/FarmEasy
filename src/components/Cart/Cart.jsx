@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import MyHeader from '../myHeader/MyHeader';
 import "./Cart.css";
 import { getCartproducts } from '../../Services/AllAPI';
+import Footer from '../footer/Footer';
 
 function Cart() {
 
@@ -101,9 +102,7 @@ function Cart() {
                     <img className="me-2" width="45px"
                       src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
                       alt="Mastercard" />
-                    <img className="me-2" width="45px"
-                      src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.webp"
-                      alt="PayPal acceptance mark" />
+                    
                   </div>
                 </div>
               </div>
@@ -112,21 +111,21 @@ function Cart() {
                   <div className="card-header py-3">
                     <h5 className="mb-0">Summary</h5>
                   </div>
-                  <div className="c">
+                  <div className="c ">
                     <ul className="list-group list-group-flush">
                       <li
-                        className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                        className="list-group-item d-flex justify-content-between align-items-center ">
                         Products
                         <span>
                           {cart.reduce((total, item) => total + item.quantity, 0)}
                         </span>
                       </li>
-                      <li className="list-group-item d-flex justify-content-between align-items-center px-0">
+                      <li className="list-group-item d-flex justify-content-between align-items-center">
                         Shipping
                         <span>Gratis</span>
                       </li>
                       <li
-                        className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                        className="list-group-item d-flex justify-content-between align-items-center">
                         <div>
                           <strong>Total amount</strong>
                           <strong>
@@ -137,7 +136,7 @@ function Cart() {
                       </li>
                     </ul>
 
-                    <button type="button" className="btn btn-primary btn-lg btn-block">
+                    <button type="button" className="btn btn-primary btn-lg btn-block mt-4">
                       Go to checkout
                     </button>
                   </div>
@@ -146,8 +145,11 @@ function Cart() {
             </div>
           </div>
         </section>
+      
       </div>
+    <Footer/>
     </>
+  
   )
 }
 
