@@ -78,8 +78,8 @@ export const addProductAPI = async (reqBody , reqHeader)=>{
 }
    
  //Add feedback
- export const AddfeedbackAPI = async(userId,reqBody,reqHeader)=>{
-  return  await commonAPI('PUT',`${BASE_URL}/farmease/profile/${userId}/`,reqBody,reqHeader)
+ export const AddfeedbackAPI = async(reqBody,reqHeader)=>{
+  return  await commonAPI('POST',`${BASE_URL}/farmease/feedback/`,reqBody,reqHeader)
 } 
    
 
@@ -126,3 +126,19 @@ export const addtoCartAPI = async (reqBody , reqHeader)=>{
 export const getCartproducts = async (reqHeader)=>{
   return await commonAPI('GET',`${BASE_URL}/farmease/farmcart/`,"",reqHeader)
 }
+
+//to post the cart address details
+export const postcartAPI = async (reqBody , reqHeader)=>{
+  return await commonAPI('POST',`${BASE_URL}/farmease/farm-orders/`, reqBody , reqHeader)
+}
+
+//to get the cart address details
+export const getcartAPI = async (reqHeader)=>{
+  return await commonAPI('GET',`${BASE_URL}/farmease/farm-orders/`, "" , reqHeader)
+}
+
+// product payment 
+export const paymentAPI = async (reqBody , reqHeader)=>{
+  return await commonAPI('POST',`${BASE_URL}/farmease/payments/`, reqBody , reqHeader)
+}
+

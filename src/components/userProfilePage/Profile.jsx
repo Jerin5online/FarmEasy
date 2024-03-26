@@ -402,6 +402,7 @@ const Profile = ({ register }) => {
             });
             sessionStorage.setItem("token", result.data.token)
             sessionStorage.setItem('user',JSON.stringify(result.data.user))
+            sessionStorage.setItem("user_type",result.data.user.user_type)
 
             setUserData({
               username: "",
