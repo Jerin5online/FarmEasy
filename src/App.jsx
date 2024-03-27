@@ -24,6 +24,7 @@ import EditNews from "./components/EditNews/EditNews";
 import Editoffice from "./components/Editoffice/Editoffice";
 import Editcrop from "./components/EditCrop/Editcrop";
 import Cart from "./components/Cart/Cart";
+import Getfeedback from "./components/getfeedback/Getfeedback";
 // import LoginSignUp from "./components/loginSignUp/LoginSignUp";
 
 
@@ -57,6 +58,8 @@ function App() {
         <Route path="/editnews" element={<Editoffice/>}/>
         <Route path="/editcrop" element={<Editcrop/>}/>
         <Route path="/addtocart" element={<Cart/>}/>
+        <Route path="/feedbackview" element={<Getfeedback/>}/>
+
         {/* <Route path="/loginsignup" element = {<LoginSignUp/>} /> */}
 
       </Routes>

@@ -67,6 +67,10 @@ function Farmerproduct() {
     <>
       <MyHeader />
       <h1 className='text-center mt-5 mb-4'>PRODUCTS</h1>
+      <Card.Body className='me-5 mb-5' style={{justifyContent:"end",display:"flex"}}>
+      <Link to={'/feedbackview'}><button type="button" class="btn btn-outline-danger">USER FEEDBACKs</button>               
+ </Link>
+       </Card.Body>
      
       <div className="row">
         {products?.length > 0 ?

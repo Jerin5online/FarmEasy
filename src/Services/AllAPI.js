@@ -81,6 +81,12 @@ export const addProductAPI = async (reqBody , reqHeader)=>{
  export const AddfeedbackAPI = async(reqBody,reqHeader)=>{
   return  await commonAPI('POST',`${BASE_URL}/farmease/orderfeedback/`,reqBody,reqHeader)
 } 
+
+//get feedback
+export const getfeedbackAPI = async(reqHeader)=>{
+  return  await commonAPI('GET',`${BASE_URL}/farmease/orderfeedback/`,"",reqHeader)
+} 
+   
    
 
 //edit news
