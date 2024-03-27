@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import { AddfeedbackAPI } from "../../Services/AllAPI";
 import Footer from "../footer/Footer";
 import MyHeader from "../myHeader/MyHeader";
@@ -8,7 +9,6 @@ const Feedback = () => {
   // State variables to store form data
 
   const [ addFeedback, setAddFeedback] = useState({
-    user:"",
     order:"",
     crop_names:"",
     content:""
@@ -25,30 +25,59 @@ const Feedback = () => {
 
   console.log(addFeedback);
 
-  const handlesubmit = async(e) =>{
+  const handlesubmit = async (e)=>{
     e.preventDefault()
-
-    const {user,order,crop_names,content} = addFeedback
-    if(!user || !order || !crop_names || !content){
-      alert("please fill the form")
-    }
-    else{
+  
+    const {order,crop_names,content}= addFeedback
+  
+    if(!order || !crop_names || !content){
+      Swal.fire({
+        title: "🚫",
+        icon: "info",
+        text: "please fill the form completely"
+    });
+  
+    }else{
       const reqBody = {
-        user:user,
-        order:order,
-        crop_names:crop_names,
-        content:content 
-      }
-      if(token){
+        order: order,
+        crop_names: crop_names,
+        content: content,
+      };
+      if (token) {
         const reqHeader = {
           "Content-Type": "application/json",
           "Authorization": `Token ${token}`
+        };
+  
+        const result = await AddfeedbackAPI(reqBody, reqHeader);
+        console.log(result);
+  
+        if (result.status === 201) {
+          console.log(result);
+          Swal.fire({
+            title: "",
+            icon: "success",
+            text: "feedback successfully sented"
+          });
+          // setTimeout(() => {
+          //   window.location.reload();
+          // }, 100);
+          // Update the news list after successfully adding the news
+          // Clear the form fields after successful addition
+          setAddFeedback({
+            order:"",
+            crop_names:"",
+            content:""
+          })
+        } else {
+          console.log(result.response.data);
         }
-         const result = AddfeedbackAPI(reqBody,reqHeader)
       }
+      
     }
    
-  }
+    
+   }
  
   return (
     <>
@@ -63,19 +92,6 @@ const Feedback = () => {
           <div className="bg-primary h-100 p-5 me-5 rounded"  style={{width:"600px"}}>
             <form >
               <div className="row g-3" >
-                <div className="col-12">
-                  <input
-                    type="text"
-                    id="text"
-                    value={addFeedback.user}
-                    onChange={(e)=>setAddFeedback({...addFeedback,user:e.target.value})}
-                    required
-                    className="form-control bg-light border-0 px-4"
-                    placeholder="Your username"
-                    style={{ height: "55px" }}
-                  />
-                  
-                </div>
                 <div className="col-12">
                   <input
                     type="text"

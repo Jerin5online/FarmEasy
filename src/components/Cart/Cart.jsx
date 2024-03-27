@@ -252,7 +252,6 @@ function Cart() {
         </section>
       
       </div>
-    <Footer/>
     </>
   
   )

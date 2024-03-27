@@ -57,11 +57,11 @@ function Farmerproduct() {
         crop_name: item.data.crop_name,
         quantity: item.data.quantity
       };
-      const result = await addtoCartAPI(reqBody, reqHeader);
+      const result = await addtoCartAPI(reqBody,reqHeader);
       
       console.log(result.data);
     }
-    console.log(`${BASE_URL}${products[0].image}`)
+   // console.log(`${BASE_URL}${products[0].image}`)
   };
   return (
     <>

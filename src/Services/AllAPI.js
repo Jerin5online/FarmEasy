@@ -79,7 +79,7 @@ export const addProductAPI = async (reqBody , reqHeader)=>{
    
  //Add feedback
  export const AddfeedbackAPI = async(reqBody,reqHeader)=>{
-  return  await commonAPI('POST',`${BASE_URL}/farmease/feedback/`,reqBody,reqHeader)
+  return  await commonAPI('POST',`${BASE_URL}/farmease/orderfeedback/`,reqBody,reqHeader)
 } 
    
 
@@ -121,8 +121,8 @@ export const deleteofficeAPI = async (projectId,reqHeader)=>{
 
 //add cart
 
-export const addtoCartAPI = async (reqBody)=>{
-  return await commonAPI('POST',`${BASE_URL}/farmease/farmcart/`, reqBody ,"")
+export const addtoCartAPI = async (reqBody,reqHeader)=>{
+  return await commonAPI('POST',`${BASE_URL}/farmease/farmcart/`, reqBody ,reqHeader)
 }
 
 //add cart producta
