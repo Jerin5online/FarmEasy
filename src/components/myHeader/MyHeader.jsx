@@ -32,7 +32,7 @@ const MyHeader = () => {
       <div>
         <nav class="navbar navbar-expand-lg bg-primary " data-bs-theme="dark" style={{  height: "80px" }}>
           <div class="container-fluid">
-            <Nav.Link href="/" className='fs-3 text-white' style={{ fontFamily: "serif" }}> <i class="fa-solid fa-wheat-awn fa-bounce"></i> FARM-EASE</Nav.Link>
+            <Nav.Link href="/" className='header fs-3 text-white'>FARM-EASE</Nav.Link>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>

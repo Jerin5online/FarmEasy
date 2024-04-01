@@ -82,6 +82,7 @@ const Feedback = () => {
   return (
     <>
     <MyHeader/>
+    <div className="feedbackbg">
     <form>
     <div className="container d-flex justify-content-center align-items-center vh-100">
       <div className="mx-auto text-center" style={{ maxWidth: "500px" }}>
@@ -141,6 +142,8 @@ const Feedback = () => {
       </div>
     </div>
     </form>
+    </div>
+   
    <Footer/>
     </>
   );

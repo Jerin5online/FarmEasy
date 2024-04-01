@@ -65,7 +65,7 @@ const About = () => {
   return (
     <>
       {sessionStorage.getItem("admin") ? null : <MyHeader />}
-      <div className="container mt-5">
+      <div className=" container mt-5">
         <h1 style={{ fontFamily: "serif" }}>Crop Information</h1>
         <div className="input-group mb-5" style={{ alignItems: "center", justifyContent: "center" }}>
           <form className="d-flex">

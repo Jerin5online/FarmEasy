@@ -3,27 +3,18 @@ import React, { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import MyHeader from "../myHeader/MyHeader";
 import Footer from "../footer/Footer";
+import { Button } from "react-bootstrap";
 
 const Home = () => {
-  // State variable to store news data
   const [newsData, setNewsData] = useState([]);
 
-  // Fetch news data from an API (example)
   useEffect(() => {
 
 
-    // fetchNewsData();
+ 
   }, []);
 
-  // const fetchNewsData = async () => {
-  //   try {
-  //     const response = await fetch('https://api.example.com/news');
-  //     const data = await response.json();
-  //     setNewsData(data.articles);
-  //   } catch (error) {
-  //     console.error('Error fetching news data:', error);
-  //   }
-  // };
+  
 
   return (<>
     <MyHeader Home />
@@ -31,41 +22,63 @@ const Home = () => {
       <Carousel data-bs-theme="dark" className="w-100">
         <Carousel.Item>
           <img
-            className="d-block w-100 " style={{ height: "700px" }}
-            src="https://img.freepik.com/free-photo/farmland_1112-1236.jpg?t=st=1709635029~exp=1709638629~hmac=588b9d3df3981c505e6948708a6109c959a00a3c93aab05ff92fcb4005fb777b&w=1380"
+            className="d-block w-100 " style={{ height: "800px" }}
+            src="https://img.freepik.com/free-photo/green-field-with-tire-marks_1204-37.jpg?t=st=1711866074~exp=1711869674~hmac=5164adc5818b209391acca668b55060ca8e7ef80a6967d54a13fc74d4fc0fa25&w=1060"
             alt="First slide"
           />
           <Carousel.Caption style={{ marginBottom: "20em", }}>
-            <h1>WELCOME TO FARM EASE APP</h1>
+            <h1  className="hometext" >WELCOME TO FARM EASE APP</h1>
             <p>The ultimate goal of farming is not the growing of crops, but the cultivation and perfection of human beings. .</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100" style={{ height: "700px" }}
-            src="https://img.freepik.com/free-photo/farm-worker-driving-tractor-spraying-green-meadow-generated-by-ai_188544-18554.jpg?t=st=1709635306~exp=1709638906~hmac=aaf7215626f21bedb7d43c0b5cd816acb54cd0eafef4ddefc7dd7b50ec21f245&w=1380"
+            className="d-block w-100" style={{ height: "800px" }}
+            src="https://img.freepik.com/free-photo/wide-shot-grassy-field-with-body-water-reflecting-beautiful-sunset-sky_181624-11456.jpg?t=st=1711865861~exp=1711869461~hmac=108d7e822b110e14f968236d42cca291e72d02982ab884d2c52c7cdae58ebbc7&w=1060"
             alt="Second slide"
           />
-          <Carousel.Caption style={{ marginBottom: "4em", }}>
-            <h1 className="text-warning">IT'S MORE THAN A JOB ,IT'S A WAY OF LIFE.</h1>
-            <p className="text-white">The farmer works the soil. The agriculturist works the farmer.</p>
+          <Carousel.Caption style={{ marginBottom: "19em", }}>
+            <h1 className=" hometext text-warning">IT'S MORE THAN A JOB ,IT'S A WAY OF LIFE.</h1>
+            <p className="">The farmer works the soil. The agriculturist works the farmer.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100" style={{ height: "700px" }}
-            src="https://img.freepik.com/free-photo/detail-rice-plant-sunset-valencia-with-plantation-out-focus-rice-grains-plant-seed_181624-25838.jpg?t=st=1709635159~exp=1709638759~hmac=ce830a54d53724167e4e9a3b8b4d0594f701be2149506d7733c42504e5d7a6f7&w=1060"
+            className="d-block w-100" style={{ height: "800px" }}
+            src="https://img.freepik.com/free-photo/farmland_1112-1236.jpg?t=st=1711865811~exp=1711869411~hmac=2e203ae4512f8a4807de24f1590476d659360b2b4c3f7b9520542c7f72c3d72d&w=1380"
             alt="Third slide"
           />
-          <Carousel.Caption style={{ marginBottom: "4em", }}>
-            <h1 className="text-white"> AGRICULTURE IS NOT FARMING IT'S FEEDING</h1>
-            <p className="text-white">
+          <Carousel.Caption style={{ marginBottom: "19em", }}>
+            <h1 className=" hometext text-warning"> AGRICULTURE IS NOT FARMING IT'S FEEDING</h1>
+            <p className="">
               Agriculture is our wisest pursuit because it will, in the end, contribute most to real wealth, good morals, and happiness.</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+         
 
     </div>
+
+    <div className="container-xxl py-5">
+      <div className="container">
+        <div className="row g-5 align-items-center">
+          <div className="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+            <div className="about-img position-relative overflow-hidden p-5 pe-0">
+              <img className="img-fluid w-100" src="https://demo.htmlcodex.com/2616/dairy-website-template/img/product-4.jpg" alt="About" />
+            </div>
+          </div>
+          <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+            <h1 className="display-5 mb-4">Best Organic Fruits And Vegetables</h1>
+            <p className="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+            <p><i className="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
+            <p><i className="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
+            <p><i className="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
+            <a className="btn btn-primary rounded-pill py-3 px-5 mt-3" href="#">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div id="cardss" className="row g-5 m-1">
 
       <div>
@@ -133,7 +146,7 @@ const Home = () => {
                 <div class="col-lg-4 col-md-6 pt-5 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item d-flex h-100">
                         <div class="service-img">
-                            <img class="img-fluid" src="img/service-1.jpg" alt=""/>
+                            <img class="img-fluid" src="https://demo.htmlcodex.com/2463/organic-food-website-template/img/blog-2.jpg" alt=""/>
                         </div>
                         <div class="service-text p-5 pt-0">
                             <div class="service-icon">
@@ -141,7 +154,6 @@ const Home = () => {
                             </div>
                             <h5 class="mb-3">Best Animal Selection</h5>
                             <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                            <a class="btn btn-square rounded-circle" href=""><i class="bi bi-chevron-double-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -156,14 +168,13 @@ const Home = () => {
                             </div>
                             <h5 class="mb-3">Breeding & Veterinary</h5>
                             <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                            <a class="btn btn-square rounded-circle" href=""><i class="bi bi-chevron-double-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 pt-5 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item d-flex h-100">
                         <div class="service-img">
-                            <img class="img-fluid" src="img/service-3.jpg" alt=""/>
+                            <img class="img-fluid" src="https://demo.htmlcodex.com/2463/organic-food-website-template/img/blog-3.jpg" alt=""/>
                         </div>
                         <div class="service-text p-5 pt-0">
                             <div class="service-icon">
@@ -171,7 +182,6 @@ const Home = () => {
                             </div>
                             <h5 class="mb-3">Care & Milking</h5>
                             <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                            <a class="btn btn-square rounded-circle" href=""><i class="bi bi-chevron-double-right"></i></a>
                         </div>
                     </div>
                 </div>

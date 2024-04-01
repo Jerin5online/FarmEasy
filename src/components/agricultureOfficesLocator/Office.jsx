@@ -58,9 +58,9 @@ const Office = () => {
   
   return (
     <>
-      <div>
+      <div className="officebg">
       {sessionStorage.getItem("admin") ? null : <MyHeader />}
-        <h2 style={{ fontFamily: "serif", textAlign: "center" }}>Agriculture Offices Locator</h2>
+        <h2 className="mt-5" style={{ fontFamily: "serif", textAlign: "center" }}>AGRICULTURE OFFICERS LOCATOR</h2>
 
 
         <div className="container mt-5">
