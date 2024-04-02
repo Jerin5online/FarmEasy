@@ -23,7 +23,7 @@ const Home = () => {
         <Carousel.Item>
           <img
             className="d-block w-100 " style={{ height: "800px" }}
-            src="https://img.freepik.com/free-photo/green-field-with-tire-marks_1204-37.jpg?t=st=1711866074~exp=1711869674~hmac=5164adc5818b209391acca668b55060ca8e7ef80a6967d54a13fc74d4fc0fa25&w=1060"
+            src="https://images.pexels.com/photos/1227513/pexels-photo-1227513.jpeg?cs=srgb&dl=pexels-oleksandr-p-1227513.jpg&fm=jpg"
             alt="First slide"
           />
           <Carousel.Caption style={{ marginBottom: "20em", }}>
@@ -34,8 +34,7 @@ const Home = () => {
         <Carousel.Item>
           <img
             className="d-block w-100" style={{ height: "800px" }}
-            src="https://img.freepik.com/free-photo/wide-shot-grassy-field-with-body-water-reflecting-beautiful-sunset-sky_181624-11456.jpg?t=st=1711865861~exp=1711869461~hmac=108d7e822b110e14f968236d42cca291e72d02982ab884d2c52c7cdae58ebbc7&w=1060"
-            alt="Second slide"
+            src="https://cdn.pixabay.com/photo/2016/11/08/05/54/agriculture-1807581_640.jpg"
           />
           <Carousel.Caption style={{ marginBottom: "19em", }}>
             <h1 className=" hometext text-warning">IT'S MORE THAN A JOB ,IT'S A WAY OF LIFE.</h1>
@@ -73,7 +72,7 @@ const Home = () => {
             <p><i className="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
             <p><i className="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
             <p><i className="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
-            <a className="btn btn-primary rounded-pill py-3 px-5 mt-3" href="#">Read More</a>
+            <a className="btn btn-primary rounded-pill py-3 px-5 mt-3" href="/products">Buy Now</a>
           </div>
         </div>
       </div>
@@ -143,7 +142,7 @@ const Home = () => {
                 <h1 class="mb-5">Services That We Offer</h1>
             </div>
             <div class="row gy-5 gx-4">
-                <div class="col-lg-4 col-md-6 pt-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-4  pt-5 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item d-flex h-100">
                         <div class="service-img">
                             <img class="img-fluid" src="https://demo.htmlcodex.com/2463/organic-food-website-template/img/blog-2.jpg" alt=""/>
@@ -152,7 +151,7 @@ const Home = () => {
                             <div class="service-icon">
                                 <img class="img-fluid rounded-circle" src="https://eng.ruralvoice.in/uploads/images/2022/06/image_750x_62ba86a6765b4.jpg" alt=""/>
                             </div>
-                            <h5 class="mb-3">Best Animal Selection</h5>
+                            <h5 class="mb-3">Fresh Product Straight from Farmer</h5>
                             <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
                         </div>
                     </div>
@@ -166,7 +165,7 @@ const Home = () => {
                             <div class="service-icon">
                                 <img class="img-fluid rounded-circle" src="https://www.jru.edu.in/wp-content/uploads/2017/05/AGRI-SECTOR-GROWTH-INDIA.jpg" alt=""/>
                             </div>
-                            <h5 class="mb-3">Breeding & Veterinary</h5>
+                            <h5 class="mb-3">Infromations About All Agricultural needs</h5>
                             <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
                         </div>
                     </div>
@@ -180,7 +179,7 @@ const Home = () => {
                             <div class="service-icon">
                                 <img class="img-fluid rounded-circle" src="https://files.worldwildlife.org/wwfcmsprod/images/Sustainable_Agriculture/hero_small/7ym5ecakzi_sustainable_agriculture_overview_XL_240144.jpg" alt=""/>
                             </div>
-                            <h5 class="mb-3">Care & Milking</h5>
+                            <h5 class="mb-3">Care and Cultivation</h5>
                             <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
                         </div>
                     </div>

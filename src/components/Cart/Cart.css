@@ -1,13 +1,22 @@
 .gradient-custom {
     /* fallback for old browsers */
-    background: #6a11cb;
+    background-image: url("https://media.istockphoto.com/id/1316968335/photo/shopping-cart-full-of-food-on-yellow-background-grocery-and-food-store-concept.jpg?b=1&s=612x612&w=0&k=20&c=TqpFHFhJNY5zyM_4VZb2YHLB5HOkKl5h89hk6zgnrV0=");
+background-size: cover;    height: 700px;
+  margin-bottom: -550px;
+
     
     /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
     
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
     }
 .cards{
-    margin-left: -50%;
+    margin-right: 0%;
+    width: 100%;
+
 }
+/* .bgcart{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQcT9RHKR6osVvu77qnv5Ej4VqDrLxvvrsoqpaiBim1A&s");
+    background-repeat: no-repeat;
+    height: 700px;
+
+} */

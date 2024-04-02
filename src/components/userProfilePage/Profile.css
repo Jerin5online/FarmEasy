@@ -1,13 +1,15 @@
-.container {
+.containers {
   max-width: 500px;
   width: 100%;
+  backdrop-filter:blur(30px) brightness(120%);
+
  
  
 }
 .bgreg{
-  background-image: url("https://img.freepik.com/free-photo/harvesting-wheat-tranquil-meadow-sunset-generated-by-ai_24640-80628.jpg?t=st=1709705356~exp=1709708956~hmac=b46bd80e106fe9a90be78103ac96b925430db544d8c2e6eda07bb08dd9fde9e6&w=1380");
+  background-image: url("https://i.pinimg.com/originals/46/76/36/4676364ecb8546c99bc4db7164bbec41.jpg");
   background-size: cover;
-  height: 816px;
+  height: 750px;
 }
 
 .container header {
@@ -15,6 +17,9 @@
   color: #000;
   font-weight: 600;
   text-align: center;
+  border-radius: 4px;
+  
+
 }
 
 .container .form {
@@ -36,12 +41,14 @@
   width: 100%;
   outline: none;
   font-size: 1rem;
-  color: #808080;
+  color: #b93535;
   margin-top: 5px;
   border: 1px solid #EE4E34;
   border-radius: 6px;
   padding: 0 15px;
   background: #FCEDDA;
+  backdrop-filter:blur(20px) brightness(110%);
+
 }
 
 .input-box input:focus {
@@ -89,7 +96,7 @@
   width: 100%;
   outline: none;
   border: none;
-  color: #808080;
+  color: #592a2a;
   font-size: 1rem;
   background: #FCEDDA;
 }

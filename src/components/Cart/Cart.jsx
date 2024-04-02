@@ -5,6 +5,7 @@ import { getCartproducts, postcartAPI } from '../../Services/AllAPI';
 import Swal from 'sweetalert2';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Footer from '../footer/Footer';
 
 function Cart() {
 
@@ -12,6 +13,8 @@ function Cart() {
   const [totalAmount, setTotalAmount] = useState(0);
 
   const [orderdetails, setOrderDetails] = useState([])
+  const [isToken, setIsToken] = useState(false);
+
 
   const [addressdetails, setAddressDetails] = useState({
     address: ""
@@ -115,145 +118,162 @@ function Cart() {
     }
   }
 
+  useEffect(() => {
+    if (sessionStorage.getItem("token")) {
+      setIsToken(true);
+    }
+  }, []);
+  
 
   return (
     <>
       <div>
         <MyHeader />
 
-        <section className="h-100 gradient-custom">
-          <div className="container py-5">
-            <div className="row d-flex justify-content-center my-4">
-              <div className="col-md-8">
-                <div className="card mb-4">
-                  <div className="card-header py-3">
-                    <h5 className="mb-0">Cart - {cart.length} items</h5>
-                  </div>
-                  {cart?.length > 0 ?
-                    cart.map((item, index) => (
-                      <div key={index} className="card-body">
-                        <div className="row">
-                          <div className="col-lg-5 col-md-6 mb-4 mb-lg-0">
-                            <p><strong>{item.name}</strong></p>
-                            <p>Quantity: {item.quantity} </p>
-                          </div>
-                          <div className="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                            <div className="d-flex mb-4" style={{ maxWidth: "300px" }}>
-                              <button className="btn btn-primary px-3 me-2" onClick={() => handleDecreaseQuantity(index)}>
-                                <i className="fas fa-minus"></i>
-                              </button>
-                              <div className="form-outline">
-                                <input id="form1" min="0" name="quantity" value={item.quantity} type="number" className="form-control" readOnly />
-                              </div>
-                              <button className="btn btn-primary px-3 ms-2" onClick={() => handleIncreaseQuantity(index)}>
-                                <i className="fas fa-plus"></i>
-                              </button>
+       <div className='bgcart'>
+         { isToken && ( <section className=" gradient-custom">
+            <div className="container py-5">
+              <div className="row d-flex justify-content-center my-4">
+                <div className="col-md-8">
+                  <div className="card mb-4">
+                    <div className="card-header py-3">
+                      <h5 className="mb-0">Cart - {cart.length} items</h5>
+                    </div>
+                    {cart?.length > 0 ?
+                      cart.map((item, index) => (
+                        <div key={index} className="card-body">
+                          <div className="row">
+                            <div className="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                              <p><strong>{item.name}</strong></p>
+                              <p>Quantity: {item.quantity} </p>
                             </div>
-                            <p className="text-start text-md-center">
-                              <strong>{item.price}</strong>
-                            </p>
+                            <div className="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                              <div className="d-flex mb-4" style={{ maxWidth: "300px" }}>
+                                <button className="btn btn-primary px-3 me-2" onClick={() => handleDecreaseQuantity(index)}>
+                                  <i className="fas fa-minus"></i>
+                                </button>
+                                <div className="form-outline">
+                                  <input id="form1" min="0" name="quantity" value={item.quantity} type="number" className="form-control" readOnly />
+                                </div>
+                                <button className="btn btn-primary px-3 ms-2" onClick={() => handleIncreaseQuantity(index)}>
+                                  <i className="fas fa-plus"></i>
+                                </button>
+                              </div>
+                              <p className="text-start text-md-center">
+                                <strong>{item.price}</strong>
+                              </p>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ))
-                    :
-                    <h1>No Crops in the cart</h1>
-                  }
-                </div>
-                <div className="card mb-4 mb-lg-0">
-                  <div className="card-body">
-                    <p><strong>We accept</strong></p>
-                    <img className="me-2" width="45px"
-                      src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
-                      alt="Visa" />
-                    <img className="me-2" width="45px"
-                      src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
-                      alt="American Express" />
-                    <img className="me-2" width="45px"
-                      src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
-                      alt="Mastercard" />
-                    
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="cards mb-4">
-                  <div className="card-header py-3">
-                    <h5 className="mb-0">Summary</h5>
-                  </div>
-                  <div className="c ">
-                    <ul className="list-group list-group-flush">
-                      <li
-                        className="list-group-item d-flex justify-content-between align-items-center ">
-                        Products
-                        <span>
-                          {cart.reduce((total, item) => total + item.quantity, 0)}
-                        </span>
-                      </li>
-                      <li className="list-group-item d-flex justify-content-between align-items-center">
-                        Shipping
-                        <span>Gratis</span>
-                      </li>
-                      <li
-                        className="list-group-item d-flex justify-content-between align-items-center">
-                        <div>
-                          <strong>Total amount</strong>
-                          <strong>
-                            <p className="mb-0">(including VAT)</p>
-                          </strong>
-                        </div>
-                        <span><strong>{totalAmount.toFixed(2)}</strong></span>
-                      </li>
-                    </ul>
-                    <form action="">
-                      <div class="input-group mb-3">
-                        <textarea type="text" class="form-control" value={addressdetails.address} onChange={(e) => setAddressDetails({ ...addressdetails, address: e.target.value })} placeholder="Enter Your Address" aria-label="Recipient's username" aria-describedby="button-addon2" />
-                      </div>
-                      <button type="button" className="btn btn-primary btn-lg btn-block" onClick={hanndlepayment}>
-                        Go to
-                      </button>
-                    </form>
-
-
-
-                  {orderdetails?.data && 
-                   
-                     (<div className="row">
-                        <Card style={{ width: '97%', marginTop:"30px" }}>
-  <Card.Body>
-    <Card.Title  style={{fontFamily:"serif",fontSize:"1.5em "}} className='text-danger'><span className="aboutfont">Your Order ID:</span> {orderdetails.data.id}</Card.Title>
-    <Card.Title><span className="aboutfont">Crop Details:</span></Card.Title>
-    {orderdetails.data.crop_details.map((crop, index) => (
-      <div key={index}>
-        <p><strong>Name:</strong> {crop.name}</p>
-        <p><strong>Quantity:</strong> {crop.quantity}</p>
-        <p><strong>Price:</strong> {crop.price}</p>
-      </div>
-    ))}
-    <Card.Title><span className="aboutfont">Address:</span> {orderdetails.data.address}</Card.Title>
-    <Card.Title><span className="aboutfont">Total:</span> {orderdetails.data.total}</Card.Title>
-    <Card.Title><span className="aboutfont">Order Date:</span> {orderdetails.data.order_date}</Card.Title>
-    <Card.Title><span className="aboutfont">Estimated Date:</span> {orderdetails.data.estimated_date}</Card.Title>
-    <Card.Title style={{fontFamily:"serif",fontSize:"1.5em ",color:"red"}}><span className="aboutfont text-danger">Username:</span> {orderdetails.data.username}</Card.Title>
-    <Card.Title><span className="aboutfont">Status:</span> {orderdetails.data.status}</Card.Title>
-    <button type="button" className="btn btn-primary btn-lg btn-block">
-      <Link style={{textDecoration:"none"}} to={'/orderpage'}> Go to Payment</Link>
-    </button>
-  </Card.Body>
-</Card>
-
-                  </div>)
+                      ))
+                      :
+                      <h1>No Crops in the cart</h1>
                     }
+                  </div>
+                  <div className="card mb-4 mb-lg-0">
+                    <div className="card-body">
+                      <p><strong>We accept</strong></p>
+                      <img className="me-2" width="45px"
+                        src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+                        alt="Visa" />
+                      <img className="me-2" width="45px"
+                        src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+                        alt="American Express" />
+                      <img className="me-2" width="45px"
+                        src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+                        alt="Mastercard" />
+  
+                    </div>
+                  </div>
+                </div>
+                <div className="col ">
+                  <div className="cards mb-4">
+                    <div className="card-header py-3 ">
+                      <h5 className="mb-0">Summary</h5>
+                    </div>
+                    <div className="c ">
+                      <ul className="list-group list-group-flush">
+                        <li
+                          className="list-group-item d-flex justify-content-between align-items-center ">
+                          Products
+                          <span>
+                            {cart.reduce((total, item) => total + item.quantity, 0)}
+                          </span>
+                        </li>
+                        <li className="list-group-item d-flex justify-content-between align-items-center">
+                          Shipping
+                          <span>Gratis</span>
+                        </li>
+                        <li
+                          className="list-group-item d-flex justify-content-between align-items-center">
+                          <div>
+                            <strong>Total amount</strong>
+                            <strong>
+                              <p className="mb-0">(including VAT)</p>
+                            </strong>
+                          </div>
+                          <span><strong>{totalAmount.toFixed(2)}</strong></span>
+                        </li>
+                      </ul>
+                      <form action="" className=''>
+                        <div class="input-group mt-3">
+                          <textarea type="text" class="form-control" value={addressdetails.address} onChange={(e) => setAddressDetails({ ...addressdetails, address: e.target.value })} placeholder="Enter Your Address" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                        </div>
+                        <button type="button" className="btn btn-primary btn-lg btn-block" onClick={hanndlepayment}>
+                          Go to payment
+                        </button>
+                      </form>
+  
+  
+  
+                      {orderdetails?.data &&
+  
+                        (<div className="row">
+                          <Card style={{ width: '97%', marginTop: "30px" }}>
+                            <Card.Body>
+                              <Card.Title style={{ fontFamily: "serif", fontSize: "1.5em " }} className='text-danger'><span className="aboutfont">Your Order ID:</span> {orderdetails.data.id}</Card.Title>
+                              <Card.Title><span className="aboutfont">Crop Details:</span></Card.Title>
+                              {orderdetails.data.crop_details.map((crop, index) => (
+                                <div key={index}>
+                                  <p><strong>Name:</strong> {crop.name}</p>
+                                  <p><strong>Quantity:</strong> {crop.quantity}</p>
+                                  <p><strong>Price:</strong> {crop.price}</p>
+                                </div>
+                              ))}
+                              <Card.Title><span className="aboutfont">Address:</span> {orderdetails.data.address}</Card.Title>
+                              <Card.Title><span className="aboutfont">Total:</span> {orderdetails.data.total}</Card.Title>
+                              <Card.Title><span className="aboutfont">Order Date:</span> {orderdetails.data.order_date}</Card.Title>
+                              <Card.Title><span className="aboutfont">Estimated Date:</span> {orderdetails.data.estimated_date}</Card.Title>
+                              <Card.Title style={{ fontFamily: "serif", fontSize: "1.5em ", color: "red" }}><span className="aboutfont text-danger">Username:</span> {orderdetails.data.username}</Card.Title>
+                              <Card.Title className='text-success'><span className="aboutfont text-black">Status:</span> {orderdetails.data.status}</Card.Title>
+                              <button type="button" className="btn btn-primary btn-lg btn-block">
+                                <Link style={{ textDecoration: "none" }} to={'/orderpage'}> Go to Payment</Link>
+                              </button>
+                            </Card.Body>
+                          </Card>
+  
+                        </div>)
+                      }
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-      
+          </section>)}:<div>
+              {isToken ?
+                <p style={{ marginBottom: "500px", fontSize: "50px"  }} className=' text-danger text-center'></p> :
+                <div className='d-flex justify-content-center align-items-center flex-column mb-5' style={{marginTop:"70px"}}>
+                  <img src="https://cdn-icons-png.flaticon.com/512/6360/6360303.png" alt="login gif" height={'300px'} width={'300px'}  />
+                  <p className='mt-5' style={{ textDecoration: "ActiveBorder" }}>PLEASE<Link style={{ textDecoration: "none", color: "purple" }} to={'/login'}> LOGIN</Link></p>
+                </div>
+              }
+            </div>
+       </div>
+       <Footer/>
       </div>
+
     </>
-  
+
   )
 }
 

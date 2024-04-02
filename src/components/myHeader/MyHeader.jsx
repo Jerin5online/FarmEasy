@@ -50,7 +50,6 @@ const MyHeader = () => {
 
 
 
-                {/* <Link className='fs-6  text-warning' to={'/disease'}>Disease</Link> */}
 
                 {islogin ? (
                   <>

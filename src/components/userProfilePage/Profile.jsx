@@ -146,12 +146,17 @@ const Profile = ({ register }) => {
     <>
 <div className="bgreg d-flex align-items-center justify-content-center">
         <div>
-          <section class="container p-4 bg-secondary">
+          
+          <section class="containers p-4 " style={{border:"rounded",}}>
             {registerform ?
-              <header>Registration Form</header>
+              <header style={{textAlign:"center" , justifyContent:"center"}}>Registration Form 
+              </header>
               :
-              <header>Login Form</header>
+              <header style={{textAlign:"center" , justifyContent:"center"}}>Login Form</header>
             }
+
+              <Link style={{textAlign:"center" , justifyContent:"center" , textDecoration:"none" ,color:"black"}} to={'/'}><h6>/back</h6></Link>
+
             <form class="form" action="#">
               <div class="input-box">
                 <label>User Name</label>
@@ -159,7 +164,7 @@ const Profile = ({ register }) => {
               </div>
               <div class="column">
                 {registerform && <div class="input-box">
-                  <label>Email</label>
+                  <label >Email</label>
                   <input value={userData.email} onChange={(e) => setUserData({ ...userData, email: e.target.value })} placeholder="Enter Your Email" type="email" />
                 </div>}
                 {registerform &&
@@ -171,7 +176,7 @@ const Profile = ({ register }) => {
               </div>
               {registerform &&
                 <div class="gender-box">
-                  <label>User Type</label>
+                  <label >User Type</label>
                   <div className="gender-option">
                     <div className="gender">
                       <input
@@ -182,7 +187,7 @@ const Profile = ({ register }) => {
                         checked={userData.user_type === "User"}
                         onChange={(e) => setUserData({ ...userData, user_type: e.target.value })}
                       />
-                      <label htmlFor="check-user">User</label> 
+                      <label htmlFor="check-user"  style={{color:"white"}}>User</label> 
                     </div>
                     <div className="gender">
                       <input
@@ -193,13 +198,13 @@ const Profile = ({ register }) => {
                         checked={userData.user_type === "Farmer"}
                         onChange={(e) => setUserData({ ...userData, user_type: e.target.value })}
                       />
-                      <label htmlFor="check-farmer">Farmer</label>
+                      <label htmlFor="check-farmer"  style={{color:"white"}}>Farmer</label>
                     </div>
                   </div>
 
                 </div>}
               {registerform && <div class="input-box address">
-                <label>Address</label>
+                <label  style={{color:"white"}}>Address</label>
                 <input value={userData.address} onChange={(e) => setUserData({ ...userData, address: e.target.value })} placeholder="Enter street address" type="text" />
                 <div class="column">
                   <input value={userData.location} onChange={(e) => setUserData({ ...userData, location: e.target.value })} placeholder="Enter Your Location" type="text" />
@@ -207,13 +212,9 @@ const Profile = ({ register }) => {
               </div>}
 
               <div class="input-box">
-                <label>Password</label>
+                <label  style={{color:"white"}}>Password</label>
                 <input value={userData.password} onChange={(e) => setUserData({ ...userData, password: e.target.value })} placeholder="Enter Your password" type="password" />
               </div>
-
-
-
-
             </form>
             {registerform ? <div className='d-flex align-items-center flex-column '>
               <button onClick={handleRegistration} className='btn btn-warning rounded mt-4'>
@@ -230,15 +231,7 @@ const Profile = ({ register }) => {
               </div>}
           </section>
         </div>
-
-
-
-
-
       </div>
-
-
-
     </>
   )
 }

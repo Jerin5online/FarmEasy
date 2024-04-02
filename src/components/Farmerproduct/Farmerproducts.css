@@ -8,3 +8,23 @@ border-radius: 3px;
 width: 50px;
 background-color: orange;
 }
+.officebg {
+    background-image: url("https://www.shutterstock.com/image-photo/earth-day-concept-abstract-blur-600nw-453577459.jpg");
+    background-size: cover;
+  }
+  .description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+  }
+  *{
+    overflow-x: hidden;
+  }
+  .productss{
+    margin-left: 40px;
+    margin-right: -20px;
+  }
+  
+
+  

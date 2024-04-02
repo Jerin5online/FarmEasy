@@ -1,3 +1,7 @@
 .officebg {
   background-image: url("https://www.shutterstock.com/image-photo/earth-day-concept-abstract-blur-600nw-453577459.jpg");
+  background-size: cover;
+}
+.rows{
+  margin-bottom: 50px;
 }

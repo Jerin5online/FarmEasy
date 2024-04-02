@@ -63,17 +63,17 @@ const News = () => {
   return (
     <>
       {sessionStorage.getItem("admin") !== "6" && <MyHeader />}
-      <div>
+      <div className='officebg' style={{marginTop:"-20px"}}>
         <h2 className="mb-5" style={{ textAlign: "center", fontFamily: "serif", marginTop: "20px" }}>News and updates</h2>
 
         {newsData?.length > 0 ?
           newsData.map((item) => (
-            <div className="row" style={{ alignItems: "center", justifyContent: "center" }}>
+            <div className="row" style={{ alignItems: "center", justifyContent: "center", }}>
               <Card style={{ width: '75%' }}>
                 <Card.Body>
-                  <Card.Title><span className="aboutfont">Title:</span> {item.title}</Card.Title>
-                  <Card.Title><span className="aboutfont">Content:</span> {item.content}</Card.Title>
-                  <Card.Title><span className="aboutfont">Date posted:</span> {item.date_posted}</Card.Title>
+                  <Card.Title style={{color:"green"}}><span className="aboutfont" style={{fontSize:"30px"}}>Title:</span> {item.title}</Card.Title>
+                  <Card.Title><span className="aboutfont" style={{fontSize:"30px"}}>Content:</span> {item.content}</Card.Title>
+                  <Card.Title><span className="aboutfont" style={{fontSize:"30px"}}>Date posted:</span> {item.date_posted}</Card.Title>
                   {sessionStorage.getItem("user") && (
     <div className='mt-3' style={{ display: 'none' }}>
       <EditNews news={item} />

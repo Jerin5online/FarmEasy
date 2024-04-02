@@ -87,8 +87,11 @@ export const getfeedbackAPI = async(reqHeader)=>{
   return  await commonAPI('GET',`${BASE_URL}/farmease/orderfeedback/`,"",reqHeader)
 } 
    
+//delete feedback
+export const DeleteFeedbackAPI = async(id,reqHeader)=>{
+  return  await commonAPI('DELETE',`${BASE_URL}/farmease/feedbackdelete/${id}/`,{},reqHeader)
+}
    
-
 //edit news
 
 export const EditNewsAPI = async(Id,reqBody,reqHeader)=>{

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { getfeedbackAPI } from '../../Services/AllAPI';
+import { DeleteFeedbackAPI, getfeedbackAPI } from '../../Services/AllAPI';
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 function Getfeedback() {
 
@@ -33,6 +34,29 @@ useEffect(() => {
   }
 }, []);
 
+// delete feedback
+const handlefeebackDelete = async (id)=>{
+  const token = sessionStorage.getItem("token")
+  const reqHeader ={
+    "Content-Type": "application/json",
+    "Authorization": `Token ${token}` 
+   }
+   const result = await DeleteFeedbackAPI (id,reqHeader)
+   console.log(result);
+   if(result.status === 204){
+    // window.location.reload()
+
+    alert('deleted')
+    getfeedback()
+    
+   
+   }
+   else{
+    console.log(result.response.data);
+   }
+}
+
+
   return (
     <div className='feedbackbg'>
       <h3 style={{textAlign:"center",marginTop:"2em",fontFamily:"serif"}}>USER FEEDBACKS</h3>
@@ -48,6 +72,9 @@ useEffect(() => {
              <ListGroup.Item>Crop Name : {item.crop_names}</ListGroup.Item>
              <ListGroup.Item>Content :{item.content} </ListGroup.Item>
              <ListGroup.Item>Date Posted : {item.date_posted} </ListGroup.Item>
+             {/* <Button onClick={()=>handlefeebackDelete(item.id)}  className='ms-2' variant="primary" >
+        <i class="fa-solid fa-trash text-danger" />
+      </Button> */}
          </ListGroup>
      </Card>
  </div>))
