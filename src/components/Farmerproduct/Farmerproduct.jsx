@@ -10,6 +10,7 @@ import Addproduct from '../Addproducts/Addproduct';
 import Footer from '../footer/Footer';
 import { Button } from 'react-bootstrap';
 import { addProductResponseContext } from '../../contexts/ContextShare';
+import Swal from 'sweetalert2';
 
 function Farmerproduct() {
   const [products, setProducts] = useState([]);
@@ -60,6 +61,11 @@ function Farmerproduct() {
       const result = await addtoCartAPI(reqBody,reqHeader);
       
       console.log(result.data);
+      Swal.fire({
+        title: 'Crop Added to cart',
+        text: '',
+        icon: 'success',
+      });
     }
    // console.log(`${BASE_URL}${products[0].image}`)
   };

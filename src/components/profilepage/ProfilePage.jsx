@@ -105,7 +105,7 @@ const ProfilePage = () => {
             <div className=" profilepage col-md-5 border-right mt-4">
               <div className="p-3 py-5">
                 <div className="d-flex justify-content-between align-items-center mb-3">
-                  <h4 className="text-right">Update Profile</h4>
+                  <h4 className="text-right"><span className='fw-bold'>Profile</span> /Update Profile</h4>
                 </div>
                 {
                   isUser ? '' : <Addproduct />

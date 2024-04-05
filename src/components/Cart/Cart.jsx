@@ -83,7 +83,7 @@ function Cart() {
 
     const { address } = addressdetails;
 
-    if (!address) {
+    if (!address )  {
       Swal.fire({
         title: "🚫",
         icon: "info",
@@ -226,34 +226,39 @@ function Cart() {
   
   
   
-                      {orderdetails?.data &&
-  
-                        (<div className="row">
-                          <Card style={{ width: '97%', marginTop: "30px" }}>
-                            <Card.Body>
-                              <Card.Title style={{ fontFamily: "serif", fontSize: "1.5em " }} className='text-danger'><span className="aboutfont">Your Order ID:</span> {orderdetails.data.id}</Card.Title>
-                              <Card.Title><span className="aboutfont">Crop Details:</span></Card.Title>
-                              {orderdetails.data.crop_details.map((crop, index) => (
-                                <div key={index}>
-                                  <p><strong>Name:</strong> {crop.name}</p>
-                                  <p><strong>Quantity:</strong> {crop.quantity}</p>
-                                  <p><strong>Price:</strong> {crop.price}</p>
-                                </div>
-                              ))}
-                              <Card.Title><span className="aboutfont">Address:</span> {orderdetails.data.address}</Card.Title>
-                              <Card.Title><span className="aboutfont">Total:</span> {orderdetails.data.total}</Card.Title>
-                              <Card.Title><span className="aboutfont">Order Date:</span> {orderdetails.data.order_date}</Card.Title>
-                              <Card.Title><span className="aboutfont">Estimated Date:</span> {orderdetails.data.estimated_date}</Card.Title>
-                              <Card.Title style={{ fontFamily: "serif", fontSize: "1.5em ", color: "red" }}><span className="aboutfont text-danger">Username:</span> {orderdetails.data.username}</Card.Title>
-                              <Card.Title className='text-success'><span className="aboutfont text-black">Status:</span> {orderdetails.data.status}</Card.Title>
-                              <button type="button" className="btn btn-primary btn-lg btn-block">
-                                <Link style={{ textDecoration: "none" }} to={'/orderpage'}> Go to Payment</Link>
-                              </button>
-                            </Card.Body>
-                          </Card>
-  
-                        </div>)
-                      }
+                      {orderdetails?.data && (
+  <div className="row">
+    {orderdetails.data.crop_details.every(crop => crop.name && crop.quantity && crop.price) && (
+      <Card style={{ width: '97%', marginTop: "30px" }}>
+        <Card.Body>
+          <Card.Title style={{ fontFamily: "serif", fontSize: "1.5em " }} className='text-danger'><span className="aboutfont">Your Order ID:</span> {orderdetails.data.id}</Card.Title>
+          <Card.Title><span className="aboutfont">Crop Details:</span></Card.Title>
+          {orderdetails.data.crop_details.map((crop, index) => (
+            <div key={index}>
+              {crop.name && crop.quantity && crop.price && (
+                <>
+                  <p><strong>Name:</strong> {crop.name}</p>
+                  <p><strong>Quantity:</strong> {crop.quantity}</p>
+                  <p><strong>Price:</strong> {crop.price}</p>
+                </>
+              )}
+            </div>
+          ))}
+          <Card.Title><span className="aboutfont">Address:</span> {orderdetails.data.address}</Card.Title>
+          <Card.Title><span className="aboutfont">Total:</span> {orderdetails.data.total}</Card.Title>
+          <Card.Title><span className="aboutfont">Order Date:</span> {orderdetails.data.order_date}</Card.Title>
+          <Card.Title><span className="aboutfont">Estimated Date:</span> {orderdetails.data.estimated_date}</Card.Title>
+          <Card.Title style={{ fontFamily: "serif", fontSize: "1.5em ", color: "red" }}><span className="aboutfont text-danger">Username:</span> {orderdetails.data.username}</Card.Title>
+          <Card.Title className='text-success'><span className="aboutfont text-black">Status:</span> {orderdetails.data.status}</Card.Title>
+          <button type="button" className="btn btn-primary btn-lg btn-block">
+            <Link style={{ textDecoration: "none" }} to={'/orderpage'}> Go to Payment</Link>
+          </button>
+        </Card.Body>
+      </Card>
+    )}
+  </div>
+)}
+
                     </div>
                   </div>
                 </div>

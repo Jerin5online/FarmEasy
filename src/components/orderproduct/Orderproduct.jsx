@@ -20,8 +20,8 @@ function Orderproduct() {
     username: "",
     card_number: "",
     cvv: "",
-    expiry_date:""
-   
+    expiry_date: ""
+
 
   })
   const [token, setToken] = useState("");
@@ -30,15 +30,15 @@ function Orderproduct() {
   console.log(orderData);
   const navigate = useNavigate();
 
-//payment
+  //payment
 
-useEffect(() => {
-  const tokenFromSession = sessionStorage.getItem("token");
-  setToken(tokenFromSession || "");
-}, []);
+  useEffect(() => {
+    const tokenFromSession = sessionStorage.getItem("token");
+    setToken(tokenFromSession || "");
+  }, []);
 
 
-const handlePayment = async (e) => {
+  const handlePayment = async (e) => {
     e.preventDefault()
     const { orderid, username, card_number, cvv, expiry_date } = orderData;
 
@@ -53,11 +53,11 @@ const handlePayment = async (e) => {
     else {
       const reqBody = {
         orderid,
-    username,
-    card_number,
-    cvv,
-    expiry_date
-   
+        username,
+        card_number,
+        cvv,
+        expiry_date
+
       };
       if (token) {
         const reqHeader = {
@@ -65,11 +65,11 @@ const handlePayment = async (e) => {
         };
         try {
           const result = await paymentAPI(reqBody, reqHeader);
-          console.log(result.data);
+          console.log(result.data.data);
           Swal.fire({
-            title: "successfull !",
-            text: "Payment successfull",
-            icon: "success",
+            title: "Payment successfull !",
+            text: (result.data.data.orderid),
+            icon: "success"
           });
 
           if (result.status === 201) {
@@ -79,15 +79,12 @@ const handlePayment = async (e) => {
               username: "",
               card_number: "",
               cvv: "",
-              expiry_date:""
-             
+              expiry_date: ""
             });
             // navigate('/')
-
-          } 
+          }
           else {
             console.log(result.data);
-
           }
         } catch (error) {
           console.error("Error:", error);
@@ -129,7 +126,7 @@ const handlePayment = async (e) => {
                         type="text"
                         size="lg"
 
-                        value={orderData.orderid} onChange={(e)=>setOrderData({ ...orderData, orderid: e.target.value })}
+                        value={orderData.orderid} onChange={(e) => setOrderData({ ...orderData, orderid: e.target.value })}
 
                       />
                     </div>
@@ -147,69 +144,69 @@ const handlePayment = async (e) => {
                         type="text"
                         size="lg"
 
-                        value={orderData.username} onChange={(e)=>setOrderData({ ...orderData, username: e.target.value })}
+                        value={orderData.username} onChange={(e) => setOrderData({ ...orderData, username: e.target.value })}
 
                       />
                     </div>
                   </div>
                 </div>
                 <div className="flex-fill mx-3 mt-2">
-                    <div className="form-outline">
-                      <MDBInput
-                        label="Card Number"
-                        id="form1"
-                        type="text"
-                        size="lg"
+                  <div className="form-outline">
+                    <MDBInput
+                      label="Card Number"
+                      id="form1"
+                      type="text"
+                      size="lg"
 
-                        value={orderData.card_number} onChange={(e)=>setOrderData({ ...orderData, card_number: e.target.value })}
+                      value={orderData.card_number} onChange={(e) => setOrderData({ ...orderData, card_number: e.target.value })}
 
-                      />
-                    </div>
+                    />
+                  </div>
+                </div>
+
+                <div className="flex-fill mx-3 mt-2">
+                  <div className="form-outline">
+                    <MDBInput
+                      label="CVV"
+                      id="form1"
+                      type="text"
+                      size="lg"
+
+                      value={orderData.cvv} onChange={(e) => setOrderData({ ...orderData, cvv: e.target.value })}
+
+                    />
                   </div>
 
-                  <div className="flex-fill mx-3 mt-2">
-                    <div className="form-outline">
-                      <MDBInput
-                        label="CVV"
-                        id="form1"
-                        type="text"
-                        size="lg"
+                </div>
+                <div className="flex-fill mx-3 mt-2">
+                  <div className="form-outline">
+                    <MDBInput
+                      label="expiry date"
+                      id="form1"
+                      type="text"
+                      size="lg"
 
-                        value={orderData.cvv} onChange={(e)=>setOrderData({ ...orderData, cvv: e.target.value })}
+                      value={orderData.expiry_date} onChange={(e) => setOrderData({ ...orderData, expiry_date: e.target.value })}
 
-                      />
-                    </div>
-                    
+                    />
                   </div>
-                  <div className="flex-fill mx-3 mt-2">
-                    <div className="form-outline">
-                      <MDBInput
-                        label="expiry date"
-                        id="form1"
-                        type="text"
-                        size="lg"
 
-                        value={orderData.expiry_date} onChange={(e)=>setOrderData({ ...orderData, expiry_date: e.target.value })}
+                </div>
 
-                      />
-                    </div>
-                    
-                  </div>
-                
 
-              
+
                 <div className="d-flex flex-row align-items-center mb-4 pb-1">
 
-                 
+
                 </div>
                 <div className="d-flex flex-row align-items-center mb-4 pb-1">
                 </div>
                 <MDBBtn type='submit' onClick={handlePayment} color="success" size="lg" block>
-                  Add card
+                  Proceed payment
                 </MDBBtn>
               </MDBCardBody>
 
-              
+
             </MDBCard>
           </MDBCol>
         </MDBRow>

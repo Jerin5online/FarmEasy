@@ -38,14 +38,14 @@ const MyHeader = () => {
             </button>
             <div class="collapse navbar-collapse" id="navbarColor01">
               <Nav style={{ marginLeft: "22rem", gap: "2em" }}>
-
-                <Link className='fs-6 text-warning' to={'/about'}>CROP</Link>
-                <Link className='fs-6  text-warning' to={'/office'}>OFFICE</Link>
-                <Link className='fs-6  text-warning' to={'/news'}>NEWS</Link>
-                <Link className='fs-6  text-warning' to={'/feedback'}>FEEDBACK</Link>
-                <Link className='fs-6  text-warning' to={'/products'}>PRODUCTS</Link>
-                <Link className='fs-6  text-warning' to={'/imagehealth'}>HEALTH ASSESMENT</Link>
-                <Link className='fs-6  text-warning' to={'/addtocart'}>CART</Link>
+                 
+                <Link className='bmg fs-6 text-warning' to={'/about'}>CROPS</Link>
+                <Link className='bmg fs-6  text-warning' to={'/office'}>OFFICE</Link>
+                <Link className='bmg fs-6  text-warning' to={'/news'}>NEWS</Link>
+                <Link className='bmg fs-6  text-warning' to={'/feedback'}>FEEDBACK</Link>
+                <Link className='bmg fs-6  text-warning' to={'/products'}>PRODUCTS</Link>
+                <Link className='bmg fs-6  text-warning' to={'/imagehealth'}>HEALTH ASSESMENT</Link>
+                <Link className='bmg fs-6  text-warning' to={'/addtocart'}>CART</Link>
 
 
 
