@@ -11,7 +11,6 @@ function Adminheader() {
             <Link className='link' to={'/addnews'}><h5 className='mb-3'><i className="fa-solid fa-newspaper"></i>News Pannel</h5></Link>
             <Link className='link' to={'/addcrop'}><h5 className='mb-3'><i className="fa-solid fa-tree"></i>Crops Pannel</h5></Link>
             <Link className='link' to={'/addoffice'}><h5 className='mb-3'><i className="fa-solid fa-arrow-right-from-bracket me-2"></i>office Pannel </h5></Link>
-            <Link className='link' to={'/users'}><h5 className='mb-3'><i className="fa-solid fa-user"></i>Logged users</h5></Link>
           
          </div>
       </div>

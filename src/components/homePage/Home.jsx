@@ -147,10 +147,8 @@ const Home = () => {
                         <div class="service-img">
                             <img class="img-fluid" src="https://demo.htmlcodex.com/2463/organic-food-website-template/img/blog-2.jpg" alt=""/>
                         </div>
-                        <div class="service-text p-5 pt-0">
-                            <div class="service-icon">
-                                <img class="img-fluid rounded-circle" src="https://eng.ruralvoice.in/uploads/images/2022/06/image_750x_62ba86a6765b4.jpg" alt=""/>
-                            </div>
+                        <div class="service-text p-5 pt-0 mt-5">
+                            
                             <h5 class="mb-3">Fresh Product Straight from Farmer</h5>
                             <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
                         </div>
@@ -161,10 +159,8 @@ const Home = () => {
                         <div class="service-img">
                             <img class="img-fluid" src="https://www.jru.edu.in/wp-content/uploads/2017/05/AGRI-SECTOR-GROWTH-INDIA.jpg" alt=""/>
                         </div>
-                        <div class="service-text p-5 pt-0">
-                            <div class="service-icon">
-                                <img class="img-fluid rounded-circle" src="https://www.jru.edu.in/wp-content/uploads/2017/05/AGRI-SECTOR-GROWTH-INDIA.jpg" alt=""/>
-                            </div>
+                        <div class="service-text p-5 pt-0 mt-5">
+                            
                             <h5 class="mb-3">Infromations About All Agricultural needs</h5>
                             <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
                         </div>
@@ -175,10 +171,8 @@ const Home = () => {
                         <div class="service-img">
                             <img class="img-fluid" src="https://demo.htmlcodex.com/2463/organic-food-website-template/img/blog-3.jpg" alt=""/>
                         </div>
-                        <div class="service-text p-5 pt-0">
-                            <div class="service-icon">
-                                <img class="img-fluid rounded-circle" src="https://files.worldwildlife.org/wwfcmsprod/images/Sustainable_Agriculture/hero_small/7ym5ecakzi_sustainable_agriculture_overview_XL_240144.jpg" alt=""/>
-                            </div>
+                        <div class="service-text p-5 pt-0 mt-5">
+                            
                             <h5 class="mb-3">Care and Cultivation</h5>
                             <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
                         </div>
