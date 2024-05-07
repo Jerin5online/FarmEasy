@@ -187,7 +187,7 @@ const Profile = ({ register }) => {
                         checked={userData.user_type === "User"}
                         onChange={(e) => setUserData({ ...userData, user_type: e.target.value })}
                       />
-                      <label htmlFor="check-user"  style={{color:"white"}}>User</label> 
+                      <label htmlFor="check-user"  style={{color:"black"}}>User</label> 
                     </div>
                     <div className="gender">
                       <input
@@ -198,13 +198,13 @@ const Profile = ({ register }) => {
                         checked={userData.user_type === "Farmer"}
                         onChange={(e) => setUserData({ ...userData, user_type: e.target.value })}
                       />
-                      <label htmlFor="check-farmer"  style={{color:"white"}}>Farmer</label>
+                      <label htmlFor="check-farmer"  style={{color:"black"}}>Farmer</label>
                     </div>
                   </div>
 
                 </div>}
               {registerform && <div class="input-box address">
-                <label  style={{color:"white"}}>Address</label>
+                <label  style={{color:"black"}}>Address</label>
                 <input value={userData.address} onChange={(e) => setUserData({ ...userData, address: e.target.value })} placeholder="Enter street address" type="text" />
                 <div class="column">
                   <input value={userData.location} onChange={(e) => setUserData({ ...userData, location: e.target.value })} placeholder="Enter Your Location" type="text" />
@@ -212,7 +212,7 @@ const Profile = ({ register }) => {
               </div>}
 
               <div class="input-box">
-                <label  style={{color:"white"}}>Password</label>
+                <label  style={{color:"black"}}>Password</label>
                 <input value={userData.password} onChange={(e) => setUserData({ ...userData, password: e.target.value })} placeholder="Enter Your password" type="password" />
               </div>
             </form>

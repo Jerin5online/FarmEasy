@@ -157,7 +157,7 @@ const Home = () => {
                 <div class="col-lg-4 col-md-6 pt-5 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item d-flex h-100">
                         <div class="service-img">
-                            <img class="img-fluid" src="https://www.jru.edu.in/wp-content/uploads/2017/05/AGRI-SECTOR-GROWTH-INDIA.jpg" alt=""/>
+                            <img class="img-fluid" src="https://www.shutterstock.com/image-photo/taking-care-crop-aerial-view-600nw-2083392067.jpg" alt=""/>
                         </div>
                         <div class="service-text p-5 pt-0 mt-5">
                             

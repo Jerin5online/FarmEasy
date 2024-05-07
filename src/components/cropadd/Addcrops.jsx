@@ -14,7 +14,7 @@ const Addcrops = () => {
     climate: "",
     growth_period: "",
     harvesting_time: "",
-    techniques: ["", ""] // Initialize techniques with two empty strings
+    techniques: [""] // Initialize techniques with two empty strings
   });
 
   console.log(addcrop);
@@ -114,21 +114,28 @@ const Addcrops = () => {
                 <input value={addcrop.harvesting_time} onChange={(e) => setAddCrop({ ...addcrop, harvesting_time: e.target.value })} required className="form-control" name="confirm-password" id="confirm-password" type="text" />
               </div>
               <div className="form-group">
-                <label htmlFor="technique1">Technique 1</label>
-                <input value={addcrop.techniques[0]} onChange={(e) => {
-                  const newTechniques = [...addcrop.techniques];
-                  newTechniques[0] = e.target.value;
-                  setAddCrop({ ...addcrop, techniques: newTechniques});
-                }} required className="form-control" name="technique1" id="technique1" type="text" />
-              </div>
-              <div className="form-group">
-                <label htmlFor="technique2">Technique 2</label>
-                <input value={addcrop.techniques[1]} onChange={(e) => {
-                  const newTechniques = [...addcrop.techniques];
-                  newTechniques[1] = e.target.value;
-                  setAddCrop({ ...addcrop, techniques: newTechniques });
-                }} required className="form-control" name="technique2" id="technique2" type="text" />
-              </div>
+  <label htmlFor="technique">Technique</label>
+  <select
+    value={addcrop.techniques[0]}
+    onChange={(e) => {
+      const newTechniques = [...addcrop.techniques];
+      newTechniques[0] = e.target.value;
+      setAddCrop({ ...addcrop, techniques: newTechniques });
+    }}
+    required
+    className="form-control"
+    name="technique"
+    id="technique"
+  >
+    <option aria-placeholder='select' value=""></option>
+    <option value="horticulture">Horticulture</option>
+    <option value="Croprotation">Crop Rotation</option>
+    <option value="Mixedfarming">Mixed Farming</option>
+    <option value="Urban agriculture">Urban agriculture</option>
+
+  </select>
+</div>
+
               <input onClick={handleAddCrop} type="submit" className="btn1" value="Submit" />
             </form>
           </div>
